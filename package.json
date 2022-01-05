@@ -9,6 +9,10 @@
   },
   "private": true,
   "dependencies": {
+    "@lava-x/antd": "^2.1.11",
+    "@lava-x/components": "^2.1.11",
+    "@lava-x/helpers": "^2.1.11",
+    "@lava-x/next-js": "^2.1.11",
     "@nrwl/next": "^13.4.3",
     "core-js": "^3.6.5",
     "next": "12.0.7",
