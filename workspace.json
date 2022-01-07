@@ -3,6 +3,7 @@
   "projects": {
     "cms": "apps/cms",
     "cms-e2e": "apps/cms-e2e",
+    "data-access": "libs/data-access",
     "mobile": "apps/mobile",
     "mobile-e2e": "apps/mobile-e2e",
     "web": "apps/web",

@@ -1,0 +1,147 @@
+# ======================================== QUERY & MUTATIONS ========================================
+
+# USER
+# ========================
+query getUserAuthProfile {
+  getUserAuthProfile {
+    ...UserInfo
+  }
+}
+
+mutation userSignIn($input: LoginCredentialInput!) {
+  userSignIn(input: $input) {
+    ...AccessTokenInfo
+  }
+}
+
+mutation userSignUp(
+  $auth: LoginCredentialInput!
+  $input: StrictUserSignUpInput!
+) {
+  userSignUp(auth: $auth, input: $input) {
+    ...AccessTokenInfo
+  }
+}
+
+mutation userForgotPassword($input: GeneralTokenRequestInput!) {
+  userForgotPassword(input: $input)
+}
+
+# BANNER
+# ========================
+query banner($id: ID!) {
+  banner(id: $id) {
+    ...BannerInfo
+  }
+}
+
+query banners(
+  $paging: CursorPaging = { first: 10 }
+  $filter: BannerFilter = {}
+  $sorting: [BannerSort!] = []
+) {
+  banners(paging: $paging, filter: $filter, sorting: $sorting) {
+    pageInfo {
+      ...PageInfoFragment
+    }
+    edges {
+      ...BannerEdge
+    }
+  }
+}
+
+mutation createOneBanner($input: CreateOneBannerInput!) {
+  createOneBanner(input: $input) {
+    ...BannerInfo
+  }
+}
+
+mutation deleteOneBanner($input: DeleteOneInput!) {
+  deleteOneBanner(input: $input) {
+    id
+  }
+}
+
+mutation updateOneBanner($input: UpdateOneBannerInput!) {
+  updateOneBanner(input: $input) {
+    name
+    image
+    link
+  }
+}
+
+# UPLOAD
+# ========================
+mutation generateSignedUrl($input: UploadRequest!) {
+  generateSignedUrl(input: $input) {
+    uid
+    signedUrl
+  }
+}
+
+# ======================================== FRAGMENTS ========================================
+
+# USER
+# ========================
+fragment UserInfo on User {
+  id
+  createdAt
+  updatedAt
+  email
+  firstName
+  lastName
+  status
+  identity
+  gender
+  dateOfBirth
+  phoneNumber
+  phoneCode
+  avatar
+  hasOnboarded
+}
+
+# BANNER
+# ========================
+fragment BannerEdge on BannerEdge {
+  node {
+    ...BannerInfo
+  }
+  cursor
+}
+
+fragment BannerInfo on Banner {
+  id
+  createdAt
+  updatedAt
+  name
+  link
+  image
+}
+
+# COMMON
+# ========================
+fragment AccessTokenInfo on AccessToken {
+  accessToken
+  expiresIn
+  refreshToken
+  refreshExpiresIn
+}
+
+fragment DeleteManyResponseInfo on DeleteManyResponse {
+  deletedCount
+}
+
+fragment UpdateManyResponseInfo on UpdateManyResponse {
+  updatedCount
+}
+
+fragment PageInfoFragment on PageInfo {
+  # """true if paging forward and there are more records."""
+  hasNextPage
+  # """true if paging backwards and there are more records."""
+  hasPreviousPage
+  # """The cursor of the first returned record."""
+  startCursor
+  # """The cursor of the last returned record."""
+  endCursor
+}

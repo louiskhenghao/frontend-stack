@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "generate:graphql": "nx run data-access:generate"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,13 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@graphql-codegen/add": "^3.1.1",
+    "@graphql-codegen/cli": "^2.3.1",
+    "@graphql-codegen/near-operation-file-preset": "^2.2.3",
+    "@graphql-codegen/typescript": "^2.4.2",
+    "@graphql-codegen/typescript-document-nodes": "^2.2.2",
+    "@graphql-codegen/typescript-operations": "^2.2.2",
+    "@graphql-codegen/typescript-react-apollo": "^3.2.3",
     "@nrwl/cli": "13.4.3",
     "@nrwl/cypress": "13.4.3",
     "@nrwl/detox": "13.4.3",
@@ -45,7 +53,9 @@
     "@testing-library/react-hooks": "7.0.2",
     "@testing-library/react-native": "8.0.0",
     "@types/detox": "17.14.3",
+    "@types/graphql": "^14.5.0",
     "@types/jest": "27.0.2",
+    "@types/lodash": "^4.14.178",
     "@types/node": "14.14.33",
     "@types/react": "17.0.30",
     "@types/react-dom": "17.0.9",
