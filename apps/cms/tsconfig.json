@@ -10,7 +10,22 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@frontend-stack/data-access": ["libs/data-access/src/index.ts"],
+      "@types": ["apps/cms/src/@types/index"],
+      "config/*": ["apps/cms/src/config/*"],
+      "helpers/*": ["apps/cms/src/helpers/*"],
+      "screens/*": ["apps/cms/src/screens/*"],
+      "components/*": ["apps/cms/src/components/*"],
+      "containers/*": ["apps/cms/src/containers/*"],
+      "constants/*": ["apps/cms/src/config/constants/*"],
+      "locales/*": ["apps/cms/src/public/static/locales/*"],
+      "assets/*": ["apps/cms/src/public/static/assets/*"],
+      "styles/*": ["apps/cms/src/styles/*"],
+      "i18n/*": ["apps/cms/i18n/*"]
+    },
+    "incremental": true
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
   "exclude": ["node_modules"]
