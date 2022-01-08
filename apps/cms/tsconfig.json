@@ -20,8 +20,7 @@
       "components/*": ["apps/cms/src/components/*"],
       "containers/*": ["apps/cms/src/containers/*"],
       "constants/*": ["apps/cms/src/config/constants/*"],
-      "locales/*": ["apps/cms/src/public/static/locales/*"],
-      "assets/*": ["apps/cms/src/public/static/assets/*"],
+      "assets/*": ["apps/cms/public/assets/*"],
       "styles/*": ["apps/cms/src/styles/*"],
       "i18n/*": ["apps/cms/i18n/*"]
     },

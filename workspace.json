@@ -6,6 +6,7 @@
     "data-access": "libs/data-access",
     "mobile": "apps/mobile",
     "mobile-e2e": "apps/mobile-e2e",
+    "shared-assets": "libs/shared/assets",
     "web": "apps/web",
     "web-e2e": "apps/web-e2e"
   }

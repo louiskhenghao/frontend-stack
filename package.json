@@ -6,6 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
+    "dep-graph": "nx dep-graph",
     "dev:cms": "cross-env NEXT_TRANSLATE_PATH=apps/cms yarn start cms",
     "generate:graphql": "nx run data-access:generate"
   },

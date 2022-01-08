@@ -12,5 +12,5 @@ module.exports = {
   loadLocaleFrom: (lang, ns) =>
     // You can use a dynamic import, fetch, whatever. You should
     // return a Promise with the JSON file.
-    import(`@common/locale/${lang}/${ns}.json`).then((m) => m.default),
+    import(`assets/locale/${lang}/${ns}.json`).then((m) => m.default),
 };

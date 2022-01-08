@@ -68,7 +68,7 @@ module.exports = withPlugins(
     ],
     [plugninNx],
     [pluginAntdLess],
-    withNextTranslate,
+    // withNextTranslate,
   ],
   nextConfig
 );

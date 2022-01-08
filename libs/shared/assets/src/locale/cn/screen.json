@@ -1,0 +1,664 @@
+{
+  "account": {
+    "categories": {
+      "email": "电子邮件",
+      "password": "登录密码",
+      "phone": "电话",
+      "profile": "我的简历"
+    },
+    "changed_email": "已成功更改电子邮件",
+    "current_email": "您当前的电子邮件是：",
+    "message": {
+      "changed_email": "已成功更改电子邮件",
+      "current_password": "请输入您当前的密码",
+      "invalid_otp": "无效的一次性密码。 请再试一次",
+      "new_password": "请输入您的新密码",
+      "password_confirm": "请确认您的密码",
+      "password_length": "密码必须至少6个字符",
+      "password_not_match": "您输入的密码不匹配。",
+      "update_password_failed": "未能更新您的密码",
+      "update_profile": "已成功更新您的{{ saveType }}",
+      "update_profile_failed": "未能更新您的个人资料",
+      "updated_password": "已成功更新您的密码"
+    },
+    "name": "帐户",
+    "otp_sent": "已发送一次性密码",
+    "password_desc": "我们建议您定期更改密码以提高安全性。",
+    "placeholders": {
+      "confirm_password": "确认新密码",
+      "first_name": "输入名字",
+      "last_name": "输入姓氏",
+      "new_email": "输入新邮箱",
+      "new_password": "输入新密码",
+      "old_password": "输入旧密码",
+      "otp": "输入一次性密码",
+      "phone": "输入电话号码"
+    },
+    "request_otp": "请求一次性密码",
+    "short_name": "帐户",
+    "success": "成功",
+    "update_email": "更新电子邮件",
+    "verify_email": "如果要更改电子邮件，则必须先进行验证。"
+  },
+  "add-catalog": {
+    "name": "添加商品",
+    "short_name": "添加"
+  },
+  "add-order-form": {
+    "name": "添加订单表格",
+    "short_name": "添加"
+  },
+  "advanced-shipping": {
+    "addAddress": "添加送貨區域",
+    "remove-marker": "您要刪除此位置嗎？"
+  },
+  "cancellation": {
+    "name": "消除",
+    "short_name": "消除",
+    "update-status": "更新狀態"
+  },
+  "catalog": {
+    "name": "目录",
+    "short_name": "目录"
+  },
+  "checkout": {
+    "address": {
+      "delivery": "郵寄地址",
+      "deliveryError": {
+        "notInCoverage": "地址不在覆蓋範圍內",
+        "selectItem": "請至少選擇一項",
+        "set": "设置郵寄地址"
+      },
+      "label": {
+        "address": "地址",
+        "city": "城市",
+        "country": "國家",
+        "postcode": "郵政編碼",
+        "state": "狀態"
+      },
+      "pickup": "取件地址",
+      "placeholder": {
+        "addressOne": "輸入地址1",
+        "addressTwo": "輸入地址2（可選）",
+        "city": "輸入城市",
+        "country": "選擇國家",
+        "postcode": "輸入郵政編碼",
+        "state": "選擇狀態"
+      },
+      "required": {
+        "address": "地址為必填項",
+        "city": "城市為必填項",
+        "country": "國家為必填項",
+        "postcode": "郵政編碼為必填項",
+        "state": "狀態為必填項"
+      },
+      "submit": "確認地址"
+    },
+    "agreeToTermsOfService": "通過下訂單，我同意",
+    "condition": {
+      "distance": "距离",
+      "flat_rate": "统一运费",
+      "radius": "范围",
+      "value": "价值",
+      "weight": "重量"
+    },
+    "contact": {
+      "label": {
+        "email": "电子邮件地址",
+        "firstName": "名字",
+        "lastName": "姓氏",
+        "phoneNumber": "電話號碼"
+      },
+      "placeholder": {
+        "email": "输入电子邮件地址",
+        "firstName": "输入名字",
+        "lastName": "输入姓氏",
+        "phoneNumber": "输入電話號碼"
+      },
+      "required": {
+        "email": "請输入电子邮件地址",
+        "firstName": "請输入名字",
+        "lastName": "請输入姓氏",
+        "phoneNumber": "請输入電話號碼"
+      },
+      "subtitle": "请输入您的聯繫信息",
+      "title": "聯繫信息"
+    },
+    "delivery": "交货",
+    "edit": "编辑",
+    "measurementUnit": {
+      "kilogram": "公斤",
+      "kilometer": "公里",
+      "per_order": "每个订单",
+      "value": "价值"
+    },
+    "notesToSeller": {
+      "placeholder": "例如，留在門口",
+      "title": "給賣家的注意事項"
+    },
+    "orderSummary": "訂單摘要",
+    "paymentMethod": "付款方法",
+    "pickup": "自取",
+    "placeOrder": "下訂單",
+    "set": "设置",
+    "shippingCharges": "運費",
+    "subtotal": "小計",
+    "termsOfService": "服務條款",
+    "title": "結帳",
+    "total": "總計"
+  },
+  "collections": {
+    "name": "收藏",
+    "short_name": "收藏"
+  },
+  "create-pickup": {
+    "name": "創造",
+    "short_name": "創造"
+  },
+  "customer-form": {
+    "label": {
+      "email": "Email",
+      "gender": "Gender",
+      "name": "Customer Name",
+      "phone-number": "Phone Number"
+    }
+  },
+  "delivered": {
+    "name": "已交付",
+    "short_name": "已交付"
+  },
+  "demo": {
+    "androidReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running, run adb reverse tcp:9090 tcp:9090 from your terminal, and reload the app.",
+    "howTo": "如何",
+    "iosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+    "reactotron": "Demo Reactotron",
+    "tagLine": "Congratulations, you’ve got a very advanced React Native app template here.  Take advantage of this boilerplate!",
+    "title": "有什么?"
+  },
+  "edit-collections": {
+    "name": "编辑收藏",
+    "short_name": "编辑"
+  },
+  "edit-order": {
+    "name": "编辑订单",
+    "short_name": "编辑"
+  },
+  "forgot-password": {
+    "name": "忘记密码",
+    "short_name": "忘记密码"
+  },
+  "home": {
+    "name": "主页",
+    "short_name": "主页"
+  },
+  "invoice-preview": {
+    "label": {
+      "phone": "电话号码",
+      "username": "用户名"
+    },
+    "message": {
+      "error": "出了些问题。 请联系卖家",
+      "no_phone": "请输入电话号码",
+      "no_rights": "无权访问此发票！",
+      "no_username": "请输入用户名",
+      "not_shared": "抱歉！无法访问此发票！请咨询商家此问题！"
+    },
+    "name": "预览发票",
+    "placeholder": {
+      "phone": "电话号码",
+      "username": "用户名"
+    },
+    "short_name": "预览发票",
+    "title": "Shopee发票",
+    "view_invoice": "查看发票"
+  },
+  "my-catalog": {
+    "name": "商品目录",
+    "short_name": "商品目录"
+  },
+  "my-fulfilments": {
+    "name": "我的成就",
+    "short_name": "我的成就"
+  },
+  "my-order-form": {
+    "name": "我的订单表格",
+    "short_name": "我的订单表格"
+  },
+  "my-orders": {
+    "name": "我的订单",
+    "short_name": "我的订单"
+  },
+  "order-form": {
+    "name": "订单表格",
+    "short_name": "订单表格"
+  },
+  "orderPayment": {
+    "detailsLabel": "以下是你的订单信息",
+    "orderFailed": "失败",
+    "orderId": "订单号",
+    "orderPaid": "已付",
+    "orderStatus": "状态",
+    "thankYou": "太棒了！你的订单我们已收到！",
+    "viewReceipt": "查看收据"
+  },
+  "orders": {
+    "billing": "結算明細",
+    "cancel": "取消訂單",
+    "name": "订单",
+    "order": "訂單詳細信息",
+    "shipping": "送貨細節",
+    "short_name": "订单"
+  },
+  "pickup": {
+    "handlingFee": "手續費",
+    "info": "取件信息",
+    "name": "撿起",
+    "payAtShop": "在商店付款",
+    "pickup-name": "取件名稱",
+    "rate": "取貨率",
+    "searchName": "按名稱搜索",
+    "shop_name": "名稱",
+    "short_name": "撿起"
+  },
+  "placeOrder": {
+    "headline": {
+      "orderInformation": "订单信息",
+      "pickupAddress": "取件地址"
+    },
+    "label": {
+      "delivery": "交货",
+      "pickup": "自取",
+      "state": "州属"
+    }
+  },
+  "ready-to-ship": {
+    "name": "准备发货",
+    "short_name": "准备发货"
+  },
+  "refund": {
+    "confirmation": "Refund Order Confirmation",
+    "name": "Refund / Return",
+    "short_name": "Refund"
+  },
+  "reset-password": {
+    "name": "重设密码",
+    "short_name": "重设密码"
+  },
+  "service-plans": {
+    "annually": "每年",
+    "basic": {
+      "invoices": "每天50张发票",
+      "subtitle": "适合小型企业",
+      "title": "基本"
+    },
+    "contact_us": "联络我们",
+    "expired": "抱歉！您的订阅已到期！",
+    "money_back": "30天退款保证",
+    "monthly": "每月",
+    "name": "计划",
+    "one_store": "仅限1家店铺",
+    "pro": {
+      "invoices": "每天120张发票",
+      "subtitle": "适合中型企业",
+      "title": "专业"
+    },
+    "risk_free": "没有风险",
+    "short_name": "计划",
+    "start_now": "现在开始",
+    "subtitle": "选择适合您业务的计划。",
+    "title": "适合所有人的灵活定价",
+    "trial": {
+      "invoices": "每天50张发票",
+      "subtitle": "不需要信用卡",
+      "title": "7天试用"
+    },
+    "try_now": "现在就试试",
+    "unlimited": {
+      "invoices": "无限发票",
+      "subtitle": "适合大型企业",
+      "title": "无限"
+    },
+    "unlimited_store": "无限店铺",
+    "viewPlans": "前往查看计划"
+  },
+  "settings": {
+    "name": "设置",
+    "short_name": "设置"
+  },
+  "settings-announcement": {
+    "name": "公告",
+    "short_name": "公告"
+  },
+  "settings-shipping": {
+    "coverage": "覆蓋範圍",
+    "name": "交貨",
+    "shipping": "船運",
+    "short_name": "交貨"
+  },
+  "settings-shipping-create": {
+    "name": "添加运输",
+    "short_name": "添加"
+  },
+  "settings-shipping-update": {
+    "name": "编辑运输",
+    "short_name": "编辑"
+  },
+  "settings-shop": {
+    "basic_information": "基本信息",
+    "message": {
+      "address_failed": "更新店铺地址失败",
+      "address_success": "已成功更新店铺地址",
+      "shop_name_taken": "店铺名称已被占用",
+      "update_failed": "更新店铺资料失败",
+      "update_success": "已成功更新店铺资料"
+    },
+    "name": "店铺信息",
+    "shop_address": "店铺地址",
+    "short_name": "店铺信息"
+  },
+  "settings-stores": {
+    "create_store": "创建新店铺名称",
+    "message": {
+      "failed_create": "创建店铺名称失败！",
+      "failed_delete": "移除店铺名称失败！",
+      "required_name": "请填写店铺名称",
+      "success_create": "成功创建新店铺名称！",
+      "success_delete": "成功移除店铺名称！"
+    },
+    "name": "店铺管理",
+    "short_name": "店铺",
+    "store_name": "店铺名称"
+  },
+  "settings-system": {
+    "name": "系统设置",
+    "short_name": "系统"
+  },
+  "setup-shop": {
+    "create-shop": "创建商店",
+    "error": "創建店鋪失敗",
+    "error-button": "重試",
+    "label": {
+      "address1": "地址1",
+      "address2": "地址2",
+      "auto_invoice_after_import": "自动生成发票（当完成导入订单）",
+      "auto_invoice_shareable": "发票生成后可自动共享",
+      "city": "城市",
+      "country": "国家",
+      "cover_image": "封面图片",
+      "disclaimer": "通过点击 （创建商店），您已接受并同意我们的 ",
+      "email_address": "电子邮件地址",
+      "enable_delivery": "启用交付",
+      "enable_pickup": "启用取件",
+      "food": "食物",
+      "general": "一般的",
+      "grocery": "杂货店",
+      "include_postage": "包含邮资（卖家副本）",
+      "landline_number": "座机号码",
+      "notes": "备注",
+      "phone_number": "电话号码",
+      "postcode": "邮政编码",
+      "product_split": "产品名称拆分字符",
+      "registration_no": "注册号码",
+      "shop_category": "店铺类别",
+      "shop_image": "店铺图片",
+      "shop_name": "店铺名称",
+      "shop_slug": "商店蛞蝓",
+      "shop_type": "店铺类型",
+      "state": "州",
+      "terms_and_condition": "条款和条件"
+    },
+    "letsCreateYourShop": "让我们创建您的商店",
+    "loading": "loading...",
+    "message": {
+      "create_failed": "创建店铺失败",
+      "create_success": "店铺创建成功",
+      "landline": "请输入座机号码",
+      "location": "请设置店铺位置",
+      "name_taken": "店铺名称已被占用",
+      "phone": "请输入电话号码",
+      "registration_no": "请输入注册号",
+      "shop": "请输入店铺名称",
+      "slug_taken": "{{ slug }}不可用",
+      "terms": "请在继续之前接受条款"
+    },
+    "new_shop": "让我们创建您的商店！",
+    "nextScreen": "下一個",
+    "placeholder": {
+      "address1": "输入地址1",
+      "address2": "输入地址2",
+      "category": "选择您的商店类别",
+      "city": "输入城市",
+      "country": "选择国家",
+      "email": "输入您的电子邮件地址",
+      "landline": "输入您的座机号码",
+      "notes": "输入您的备注以显示在发票中",
+      "phone": "输入你的电话号码",
+      "postcode": "输入邮政编码",
+      "product_split": "字符",
+      "registration": "输入您的注册号",
+      "shop_name": "输入您的店铺名称",
+      "shop_slug": "输入您的商店蛞蝓",
+      "state": "选择州"
+    },
+    "proceed": "繼續",
+    "required": {
+      "cover": "封面圖片為必填項",
+      "logo": "徽標為必填項",
+      "terms": "请接受条款得以继续"
+    },
+    "return": "返回設置頁面",
+    "review": "您現在可以進入主頁",
+    "steps": {
+      "additional": "额外",
+      "address": "店鋪地址",
+      "complete": "完成",
+      "done": "完畢",
+      "shop_info": "店铺信息"
+    },
+    "subtitle": "通过完成以下详细信息，向我们介绍您的商店。",
+    "success": "註冊成功",
+    "tellUsAboutYourShopByCompletingTheDetailsBelow": "通过完成以下详细信息，向我们介绍您的商店。",
+    "title": "开设商店",
+    "uploadLogo": "上传徽标"
+  },
+  "shipments": {
+    "name": "履行",
+    "short_name": "履行"
+  },
+  "shipped": {
+    "name": "已发货",
+    "short_name": "已发货"
+  },
+  "shopScreen": {
+    "businessInfo": {
+      "contact": "聯繫信息",
+      "location": "地點",
+      "notes": "注意事項",
+      "openingHours": "營業時間"
+    },
+    "checkout": "結帳",
+    "continue": "继续",
+    "footer": {
+      "poweredBy": "SATU 为你呈现",
+      "privacyPolicy": "隱私政策",
+      "refundPolicy": "退款政策",
+      "shippingPolicy": "運輸政策",
+      "termsOfService": "服務條款"
+    }
+  },
+  "shopee-job": {
+    "actual_processed": "实际处理总额",
+    "actual_processed_invoices": "总生成发票",
+    "actual_processed_orders": "总导入订单",
+    "add_new_store": "添加新店铺名称",
+    "copy_order": "订单号已复制",
+    "create_import_job": "添加导入工作",
+    "duplications": "重复:",
+    "file": "文件",
+    "generate": "生成",
+    "generate_invoice": "生成发票",
+    "generate_progress": "生成进度",
+    "import_orders": "导入订单",
+    "import_progress": "进度",
+    "invoice_number": "发票编号",
+    "job_details": "工作详情",
+    "job_number": "工作编号",
+    "message": {
+      "create_name_failed": "无法创建店铺名称",
+      "create_name_success": "已成功创建店铺名称",
+      "enter_store": "请输入店铺名称",
+      "invoice_failed": "生成发票失败",
+      "invoice_success": "生成发票成功",
+      "job_create": "已成功创建工作",
+      "job_failed": "无法创建工作",
+      "pause_failed": "无法暂停工作",
+      "pause_success": "成功暂停工作",
+      "retrigger_confirm": "您确定要重新运行此作业吗？",
+      "retrigger_confirm_message": "重新运行此作业可能会覆盖现有数据，请问你是否要继续执行？",
+      "retrigger_failed": "重新运行作业失败！",
+      "retrigger_success": "重新运行作业成功!",
+      "select_language": "请选择您的发票语言",
+      "trigger_confirm": "您确定要运行此作业？",
+      "trigger_confirm_message": "运行此作业可能会覆盖现有数据，请问你是否要继续执行？",
+      "upload_excel": "请上传Excel文件"
+    },
+    "name": "工作列表",
+    "number_of_invoices": "{{ count }}发票",
+    "number_of_order_items": "{{ count }}商品",
+    "number_of_orders": "{{ count }}订单",
+    "order_items": "订购商品",
+    "order_number": "订单号",
+    "orders_list": "订单清单",
+    "overall_info": "整体信息",
+    "placeholders": {
+      "search_order_number": "搜索订单号",
+      "search_store": "搜索店铺名称",
+      "select_end": "选择结束日期",
+      "select_start": "选择开始日期",
+      "select_store": "选择店铺名称",
+      "store": "输入店铺名称"
+    },
+    "progress": "进度",
+    "retrigger": "重新运行",
+    "short_name": "工作列表",
+    "state": {
+      "completed": "完成",
+      "failed": "失败",
+      "paused": "暂停",
+      "pending": "待办",
+      "processing": "处理中"
+    },
+    "store_name": "店铺名称",
+    "total": "总数",
+    "total_cancelled": "取消总数",
+    "total_completed": "完成总数",
+    "total_duplicates": "总重复数",
+    "total_items": "总订单项",
+    "total_shipping": "运送中总数",
+    "total_to_ship": "准备运送总数",
+    "upload_text": "上传Excel"
+  },
+  "shopee-orders": {
+    "address": "邮寄地址",
+    "amount": "合计",
+    "buyer_shipping": "买家支付运费",
+    "buyer_username": "买家用户名",
+    "click_copy_link": "点击图标拷贝",
+    "contact": "收货人联系方式",
+    "created_date": "创立日期",
+    "deal_price": "成交价",
+    "generating_invoice": "正在为订单{{ orderId }}生成发票",
+    "message": {
+      "generation_confirm": "您确定要运行此作业？",
+      "generation_confirm_message": "运行此作业可能会覆盖现有发票，请问你是否要继续执行？",
+      "invoice_success": "已成功发送订单以生成发票",
+      "update_item_success": "已成功更新订单项",
+      "update_order_success": "已成功更新订单"
+    },
+    "name": "订单",
+    "non_shareable": "关闭分享",
+    "order_info": "订单信息",
+    "paid_time": "订单支付时间",
+    "parent_sku": "SKU参考号",
+    "placeholders": {
+      "product": "输入产品名称",
+      "variation": "输入变体名称"
+    },
+    "product": "产品名称",
+    "quantity": "数量",
+    "receiver": "收件者姓名",
+    "shareable": "公开分享",
+    "shipping_option": "运输选项",
+    "short_name": "订单",
+    "total_amount": "总金额",
+    "total_items": "总数量",
+    "tracking": "追踪号码",
+    "update_order_item": "编辑订单项目",
+    "variation": "变体名称"
+  },
+  "shopee-reporting": {
+    "average_sales": "平均销售额",
+    "create": "生成报告",
+    "custom": "定制",
+    "daily": "每日",
+    "message": {
+      "regenerate_failed": "无法重新生成报告",
+      "regenerate_success": "重新生成报告{{ name }}",
+      "report_created": "已成功发送创建报告的请求",
+      "report_failed": "未能发送创建报告的请求",
+      "retrigger_confirm": "您确定要重新生成此报告吗？",
+      "retrigger_confirm_message": "重新运行此作业将会以当下数据生成新一份报告，请问你是否要继续执行？"
+    },
+    "monthly": "每月",
+    "name": "报告",
+    "overall": "总体",
+    "overall_average": "整体平均销售额",
+    "overall_total": "总销售额",
+    "period": "时期",
+    "placeholders": {
+      "select_date": "选择日期",
+      "select_end": "选择结束日期",
+      "select_month": "选择月份",
+      "select_quarter": "选择季度",
+      "select_start": "选择开始日期",
+      "select_week": "选择周",
+      "sku": "搜索SKU"
+    },
+    "quantity_sold": "销售数量",
+    "quarterly": "每季",
+    "select_date": "选择日期",
+    "short_name": "报告",
+    "sku_overview": "SKU概述",
+    "snapshots": "报告快照",
+    "total_sales": "总销售额",
+    "total_sku": "SKU总数",
+    "total_snapshots": "报告快照数量",
+    "type": "类型",
+    "weekly": "每周"
+  },
+  "subscription-plan": {
+    "active": "当前计划",
+    "day": "日",
+    "free": "免费",
+    "month": "月",
+    "week": "周",
+    "year": "年"
+  },
+  "update-catalog": {
+    "name": "编辑商品",
+    "short_name": "编辑"
+  },
+  "update-order-form": {
+    "name": "编辑订单表格",
+    "short_name": "编辑"
+  },
+  "update-pickup": {
+    "name": "更新",
+    "short_name": "更新"
+  },
+  "welcome": {
+    "continue": "继续",
+    "poweredBy": "LavaX 为你呈现",
+    "readyForLaunch": "Ready for launch."
+  }
+}
