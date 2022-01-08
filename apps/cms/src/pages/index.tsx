@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Badge } from '@frontend-stack/shared/ui-component';
 import { Button } from 'react-native';
 
 const StyledPage = styled.div`
@@ -16,7 +15,6 @@ export function Index() {
   return (
     <StyledPage>
       <Button title="HAHHAHA" />
-      <Badge>Hey</Badge>
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
