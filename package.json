@@ -23,7 +23,8 @@
     "mobile:android-test-e2e": "nx test-android mobile-e2e",
     "mobile:test": "nx test mobile",
     "adb": "adb reverse tcp:9090 tcp:9090 && adb reverse tcp:3000 tcp:3000 && adb reverse tcp:9001 tcp:9001 && adb reverse tcp:8081 tcp:8081",
-    "generate:graphql": "nx run data-access:generate"
+    "generate:graphql": "nx run data-access:generate",
+    "postinstall": "nx postinstall mobile"
   },
   "private": true,
   "dependencies": {

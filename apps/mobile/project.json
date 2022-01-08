@@ -77,6 +77,12 @@
         "jestConfig": "apps/mobile/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "postinstall": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node apps/mobile/bin/postInstall"
+      }
     }
   },
   "tags": []
