@@ -14,8 +14,8 @@
     "incremental": true,
     "paths": {
       "@frontend-stack/data-access": ["libs/data-access/src/index.ts"],
-      "@frontend-stack/shared/ui-component": [
-        "libs/shared/ui-component/src/index.ts"
+      "@frontend-stack/shared/components": [
+        "libs/shared/components/src/index.ts"
       ],
       "@types": ["apps/web/src/@types/index"],
       "config/*": ["apps/web/src/config/*"],

@@ -7,7 +7,7 @@
     "mobile": "apps/mobile",
     "mobile-e2e": "apps/mobile-e2e",
     "shared-assets": "libs/shared/assets",
-    "shared-ui-component": "libs/shared/ui-component",
+    "shared-components": "libs/shared/components",
     "web": "apps/web",
     "web-e2e": "apps/web-e2e"
   }

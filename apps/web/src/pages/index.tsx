@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HelloWorld, KIKI } from '@frontend-stack/shared/components';
 
 const StyledPage = styled.div`
   .page {
@@ -14,6 +15,8 @@ export function Index() {
   return (
     <StyledPage>
       <div className="wrapper">
+        <HelloWorld />
+        <KIKI />
         <div className="container">
           <div id="welcome">
             <h1>
