@@ -25,6 +25,8 @@ const os = require('os');
 
   // Make sure our native modules are androidX-happy
   { command: 'jetify' },
+
+  { command: 'cd apps/mobile/ios && pod install' },
 ]
   .filter(
     ({ onlyPlatforms }) =>
