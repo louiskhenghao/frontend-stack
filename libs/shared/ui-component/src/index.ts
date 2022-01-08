@@ -1,2 +1,1 @@
-export * from './lib/shared-ui-component';
-export * from './components';
+export * from './components/Badge';
