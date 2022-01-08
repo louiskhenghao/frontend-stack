@@ -1,7 +1,7 @@
 // const { appRootPath } = require('@nrwl/tao/src/utils/app-root');
 const withNx = require('@nrwl/next/plugins/with-nx');
 const withPlugins = require('next-compose-plugins');
-// const withNextTranslate = require('next-translate');
+const withNextTranslate = require('next-translate');
 const packages = require('./transpile-packages');
 const withTM = require('next-transpile-modules');
 
@@ -49,10 +49,6 @@ const customWebpack = {
 
 // ==========================
 module.exports = withPlugins(
-  [
-    withTM(packages),
-    [plugninNx, customWebpack],
-    // withNextTranslate,
-  ],
+  [withTM(packages), [plugninNx, customWebpack], withNextTranslate],
   nextConfig
 );

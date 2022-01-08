@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Button } from 'react-native';
+import useTranslation from 'next-translate/useTranslation';
 
 const StyledPage = styled.div`
   .page {
@@ -7,6 +8,9 @@ const StyledPage = styled.div`
 `;
 
 export function Index() {
+  const { t, lang } = useTranslation('common');
+
+  console.log('lang----->', lang);
   /*
    * Replace the elements below with your own.
    *
@@ -14,8 +18,9 @@ export function Index() {
    */
   return (
     <StyledPage>
-      <Button title="HAHHAHA" />
+      <Button title="HEHEH" />
       <div className="wrapper">
+        {t('common:hello')} from {t('common:brand')}
         <div className="container">
           <div id="welcome">
             <h1>

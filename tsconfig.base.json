@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@frontend-stack/shared/assets/*": ["libs/shared/assets/src/*"],
       "@frontend-stack/data-access": ["libs/data-access/src/index.ts"],
       "@frontend-stack/shared/components": [
         "libs/shared/components/src/index.ts"
