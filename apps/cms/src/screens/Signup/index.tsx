@@ -8,7 +8,7 @@ import {
   // useUserSignInWithSocialMutation
 } from '@frontend-stack/data-access';
 import { DEFAULT_PATH_AFTER_SIGN_IN } from 'config/constant';
-import Logo from 'assets/images/logo.svg';
+import Logo from '@frontend-stack/shared/assets/images/logo.svg';
 
 const SignUpScreen: React.FC = () => {
   const { t } = useTranslation('common');

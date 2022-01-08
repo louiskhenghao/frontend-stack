@@ -9,14 +9,7 @@
       "defaultConfiguration": "production",
       "options": {
         "root": "apps/cms",
-        "outputPath": "dist/apps/cms",
-        "assets": [
-          {
-            "input": "libs/shared/assets/src/images",
-            "glob": "**/*",
-            "output": "assets"
-          }
-        ]
+        "outputPath": "dist/apps/cms"
       },
       "configurations": {
         "production": {}
@@ -60,5 +53,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["shared-assets"]
+  "implicitDependencies": []
 }
