@@ -1,6 +1,7 @@
 {
   "presets": ["@nrwl/next/babel"],
   "plugins": [
+    ["react-native-web", { "commonjs": true }],
     ["styled-components", { "pure": true, "ssr": true }],
     ["import", { "libraryName": "antd", "style": true }]
   ]
