@@ -10,7 +10,24 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "incremental": true,
+    "paths": {
+      "@frontend-stack/data-access": ["libs/data-access/src/index.ts"],
+      "@frontend-stack/shared/ui-component": [
+        "libs/shared/ui-component/src/index.ts"
+      ],
+      "@types": ["apps/web/src/@types/index"],
+      "config/*": ["apps/web/src/config/*"],
+      "helpers/*": ["apps/web/src/helpers/*"],
+      "screens/*": ["apps/web/src/screens/*"],
+      "components/*": ["apps/web/src/components/*"],
+      "containers/*": ["apps/web/src/containers/*"],
+      "constants/*": ["apps/web/src/config/constants/*"],
+      "assets/*": ["apps/web/public/assets/*"],
+      "styles/*": ["apps/web/src/styles/*"],
+      "i18n/*": ["apps/web/i18n/*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
   "exclude": ["node_modules"]

@@ -11,8 +11,12 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "incremental": true,
     "paths": {
       "@frontend-stack/data-access": ["libs/data-access/src/index.ts"],
+      "@frontend-stack/shared/ui-component": [
+        "libs/shared/ui-component/src/index.ts"
+      ],
       "@types": ["apps/cms/src/@types/index"],
       "config/*": ["apps/cms/src/config/*"],
       "helpers/*": ["apps/cms/src/helpers/*"],
@@ -23,8 +27,7 @@
       "assets/*": ["apps/cms/public/assets/*"],
       "styles/*": ["apps/cms/src/styles/*"],
       "i18n/*": ["apps/cms/i18n/*"]
-    },
-    "incremental": true
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
   "exclude": ["node_modules"]
