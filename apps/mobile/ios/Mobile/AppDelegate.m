@@ -3,6 +3,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <React/RCTConvert.h>
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -33,13 +34,16 @@ static void InitializeFlipper(UIApplication *application) {
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"main"
+                                                   moduleName:@"mobile"
                                             initialProperties:nil];
 
   if (@available(iOS 13.0, *)) {
-      rootView.backgroundColor = [UIColor systemBackgroundColor];
+    // Change this to whatever color you want -- it'll show as
+    // your app loads for the first time in the background.
+    // You can use the system's background color if you wish
+    rootView.backgroundColor = [UIColor systemBackgroundColor];
   } else {
-      rootView.backgroundColor = [UIColor whiteColor];
+    rootView.backgroundColor = [UIColor whiteColor];
   }
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -47,15 +51,25 @@ static void InitializeFlipper(UIApplication *application) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+
+  [super application:application didFinishLaunchingWithOptions:launchOptions];
+
   return YES;
 }
+
+- (NSArray<id<RCTBridgeModule>> *)extraModulesForBridge:(RCTBridge *)bridge
+{
+    // If you'd like to export some custom RCTBridgeModules that are not Expo modules, add them here!
+    return @[];
+}
+
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
 #if DEBUG
-  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"apps/mobile/src/main" fallbackResource:nil];
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"apps/mobile/index" fallbackResource:nil];
 #else
-  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  return [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"jsbundle"];
 #endif
 }
 

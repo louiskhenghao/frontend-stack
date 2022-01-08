@@ -4,13 +4,13 @@
   "apps": {
     "ios.debug": {
       "type": "ios.app",
-      "build": "cd ../mobile/ios && xcodebuild -workspace Mobile.xcworkspace -scheme Mobile -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
-      "binaryPath": "../mobile/ios/build/Build/Products/Debug-iphonesimulator/Mobile.app"
+      "build": "cd ../mobile/ios && xcodebuild -workspace mobile.xcworkspace -scheme mobile -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
+      "binaryPath": "../mobile/ios/build/Build/Products/Debug-iphonesimulator/mobile.app"
     },
     "ios.release": {
       "type": "ios.app",
-      "build": "cd ../mobile/ios && xcodebuild -workspace Mobile.xcworkspace -scheme Mobile -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
-      "binaryPath": "../mobile/ios/build/Build/Products/Release-iphonesimulator/Mobile.app"
+      "build": "cd ../mobile/ios && xcodebuild -workspace mobile.xcworkspace -scheme mobile -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
+      "binaryPath": "../mobile/ios/build/Build/Products/Release-iphonesimulator/mobile.app"
     },
     "android.debug": {
       "type": "android.apk",
@@ -33,7 +33,7 @@
     "emulator": {
       "type": "android.emulator",
       "device": {
-        "avdName": "Pixel_4a_API_30"
+        "avdName": "Pixel_4a_API_31"
       }
     }
   },

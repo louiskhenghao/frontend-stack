@@ -1,4 +1,3 @@
-// Replace "com.example" here and below with your app's package name from the top of MainActivity.java
 package com.mobile;
 
 import com.wix.detox.Detox;
@@ -22,10 +21,6 @@ public class DetoxTest {
 
     @Test
     public void runDetoxTests() {
-        // This is optional - in case you've decided to integrate TestButler
-        // See https://github.com/wix/Detox/blob/master/docs/Introduction.Android.md#8-test-butler-support-optional
-        // TestButlerProbe.assertReadyIfInstalled();
-
         DetoxConfig detoxConfig = new DetoxConfig();
         detoxConfig.idlePolicyConfig.masterTimeoutSec = 90;
         detoxConfig.idlePolicyConfig.idleResourceTimeoutSec = 60;

@@ -9,6 +9,13 @@
         "port": 8081
       }
     },
+    "start-reset-cache": {
+      "executor": "@nrwl/react-native:start",
+      "options": {
+        "port": 8081,
+        "resetCache": true
+      }
+    },
     "serve": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
@@ -23,7 +30,7 @@
       "executor": "@nrwl/react-native:bundle",
       "outputs": ["apps/mobile/build"],
       "options": {
-        "entryFile": "apps/mobile/src/main.tsx",
+        "entryFile": "apps/mobile/index.js",
         "platform": "ios",
         "bundleOutput": "dist/apps/mobile/ios/main.jsbundle"
       }
@@ -43,7 +50,7 @@
     "bundle-android": {
       "executor": "@nrwl/react-native:bundle",
       "options": {
-        "entryFile": "apps/mobile/src/main.tsx",
+        "entryFile": "apps/mobile/index.js",
         "platform": "android",
         "bundleOutput": "dist/apps/mobile/android/main.jsbundle"
       }
