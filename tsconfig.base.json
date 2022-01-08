@@ -17,6 +17,9 @@
     "paths": {
       "@frontend-stack/data-access": ["libs/data-access/src/index.ts"],
       "@frontend-stack/shared/assets": ["libs/shared/assets/src/index.ts"],
+      "@frontend-stack/shared/components": [
+        "libs/shared/components/src/index.ts"
+      ],
       "@frontend-stack/shared/ui-component": [
         "libs/shared/ui-component/src/index.ts"
       ]

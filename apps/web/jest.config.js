@@ -1,3 +1,6 @@
+// const { appRootPath } = require('@nrwl/tao/src/utils/app-root');
+// const presets = require('../../jest.preset')
+
 module.exports = {
   displayName: 'web',
   preset: '../../jest.preset.js',
