@@ -84,7 +84,16 @@ project.ext.react = [
     entryFile: 'apps/mobile/index.js',
 ]
 
+project.ext.vectoricons = [
+        iconFontNames: [ 'FontAwesome.ttf', 'FontAwesome5_Regular.ttf',
+             'FontAwesome5_Solid.ttf', 'FontAwesome5_Brands.ttf','AntDesign.ttf','Entypo.ttf',
+             'EvilIcons.ttf','Feather.ttf','Foundation.ttf','Ionicons.ttf','MaterialIcons.ttf',
+             'MaterialCommunityIcons.ttf','SimpleLineIcons.ttf','Octicons.ttf','Zocial.ttf','Fontisto.ttf' 
+        ]
+]
+
 apply from: new File(["node", "--print", "require.resolve('react-native/package.json')"].execute().text.trim(), "../react.gradle")
+apply from: new File(["node", "--print", "require.resolve('react-native-vector-icons/package.json')"].execute().text.trim(), "../fonts.gradle");
 
 /**
  * Set this to true to create two separate APKs instead of one:

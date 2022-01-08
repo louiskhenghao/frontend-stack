@@ -70,7 +70,8 @@
     "solidarity": "*",
     "typescript": "*",
     "@testing-library/react-native": "*",
-    "@testing-library/jest-native": "*"
+    "@testing-library/jest-native": "*",
+    "react-native-vector-icons": "*"
   },
   "devDependencies": {
     "@babel/core": "*",
