@@ -88,6 +88,12 @@
       "options": {
         "command": "cd apps/mobile && yarn react-native set-icon --path ../../libs/shared/assets/src/images/icon.png"
       }
+    },
+    "generate-apk": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "cd apps/mobile/android && ./gradlew assembleRelease"
+      }
     }
   },
   "tags": []
