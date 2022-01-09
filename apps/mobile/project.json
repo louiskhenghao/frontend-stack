@@ -83,6 +83,12 @@
       "options": {
         "command": "node apps/mobile/bin/postInstall"
       }
+    },
+    "rename": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx react-native-rename"
+      }
     }
   },
   "tags": []
