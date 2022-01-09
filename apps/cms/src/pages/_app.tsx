@@ -10,6 +10,7 @@ import {
   withApolloClient,
   withRouteIndicator,
 } from '@lava-x/next-js';
+import useTranslation from 'next-translate/useTranslation';
 import authOptions from 'config/auth.config';
 import apolloOptions from 'config/apollo.config';
 import { useLayoutMenus } from 'config/layout.config';
@@ -25,6 +26,7 @@ const MyApp = (props: AppProps) => {
   const { pathname, asPath } = router;
 
   // ================= HOOKS
+  const { t } = useTranslation('common');
   const { sidebar, header } = useLayoutMenus();
   const { authUser, config, signout } = useAuthIdentity();
 
@@ -48,7 +50,7 @@ const MyApp = (props: AppProps) => {
     <LayoutProvider
       theme="light"
       styles="satu"
-      heading="CMS"
+      heading={t('brand')}
       fixedHeader
       enableSider
       logo={brand.src}

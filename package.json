@@ -18,7 +18,8 @@
     "test:cms": "yarn test cms",
     "test:web": "yarn test web",
     "generate:graphql": "nx run data-access:generate",
-    "generate:component": "yarn nx g @nrwl/react-native:component --project=shared-components --directory=components --pascalCaseFiles=true --export=true"
+    "generate:component": "yarn nx g @nrwl/react-native:component --project=shared-components --directory=components --pascalCaseFiles=true --export=true",
+    "locale:fix": "eslint --fix --format node_modules/eslint-plugin-i18n-json/formatter.js libs/shared/assets/src/locales/**/*.json --no-ignore"
   },
   "private": true,
   "dependencies": {
@@ -58,6 +59,7 @@
     "@graphql-codegen/typescript-document-nodes": "^2.2.2",
     "@graphql-codegen/typescript-operations": "^2.2.2",
     "@graphql-codegen/typescript-react-apollo": "^3.2.3",
+    "@m6web/eslint-plugin-i18n": "^1.5.0",
     "@nrwl/cli": "13.4.3",
     "@nrwl/cypress": "13.4.3",
     "@nrwl/detox": "13.4.3",
@@ -101,6 +103,7 @@
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-i18n-json": "^3.1.0",
     "eslint-plugin-import": "2.25.2",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-react": "7.26.1",

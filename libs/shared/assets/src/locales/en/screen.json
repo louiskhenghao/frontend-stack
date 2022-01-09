@@ -1,4 +1,7 @@
 {
+  "signin": {
+    "title": "Sign In"
+  },
   "welcome": {
     "continue": "CONTINUE",
     "poweredBy": "POWERED BY Lava X"

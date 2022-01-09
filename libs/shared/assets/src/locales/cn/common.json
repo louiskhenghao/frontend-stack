@@ -1,5 +1,5 @@
 {
   "brand": "Lava X",
-  "variable-example": "应用变数 {{count}}",
-  "hello": "你好，世界！"
+  "hello": "你好，世界！",
+  "variable-example": "应用变数 {{count}}"
 }
