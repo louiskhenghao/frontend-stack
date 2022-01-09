@@ -18,6 +18,7 @@
     "mobx-state-tree": "*",
     "react": "*",
     "react-native": "*",
+    "react-native-config": "*",
     "react-native-gesture-handler": "*",
     "react-native-keychain": "*",
     "react-native-safe-area-context": "*",

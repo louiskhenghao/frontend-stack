@@ -7,7 +7,9 @@ import { HelloWorld } from '@frontend-stack/shared/components';
 import { useTranslation } from '../../i18n';
 
 export const ExampleScreen = () => {
+  // ================= HOOKS
   const { t } = useTranslation('common');
+
   return (
     <View style={tw`flex-1 justify-center items-center`}>
       <Text>
