@@ -1,4 +1,7 @@
 {
+  "signin": {
+    "title": "登入"
+  },
   "welcome": {
     "continue": "继续",
     "poweredBy": "LavaX 为你呈现"

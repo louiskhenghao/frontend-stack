@@ -10,23 +10,25 @@ import {
   withApolloClient,
   withRouteIndicator,
 } from '@lava-x/next-js';
+import useTranslation from 'next-translate/useTranslation';
 import authOptions from 'config/auth.config';
 import apolloOptions from 'config/apollo.config';
 import { useLayoutMenus } from 'config/layout.config';
+import brand from '@frontend-stack/shared/assets/images/logo.png';
+import { ReactComponent as Logo } from '@frontend-stack/shared/assets/images/logo.svg';
 require('../styles/styles.less');
 import 'styles/globals.scss';
 
 const MyApp = (props: AppProps) => {
   const { Component, pageProps, router } = props;
 
-  // ================= HOOKS
-  const { sidebar, header } = useLayoutMenus();
-  const { authUser, config, signout } = useAuthIdentity();
-
-  console.log('sidebar ----->', sidebar);
-
   // ================= VARIABLES
   const { pathname, asPath } = router;
+
+  // ================= HOOKS
+  const { t } = useTranslation('common');
+  const { sidebar, header } = useLayoutMenus();
+  const { authUser, config, signout } = useAuthIdentity();
 
   // ================= EVENTS
   const onActionSignOut = () => {
@@ -48,11 +50,11 @@ const MyApp = (props: AppProps) => {
     <LayoutProvider
       theme="light"
       styles="satu"
-      heading="CMS"
+      heading={t('brand')}
       fixedHeader
       enableSider
-      // logo={LogoBrand}
-      // brand={Logo}
+      logo={brand.src}
+      brand={<Logo width="200" height="64" />}
       config={config}
       authUser={authUser}
       sideMenus={sidebar}

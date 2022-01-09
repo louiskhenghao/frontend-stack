@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
-import { SignInScreen } from 'screens/SignIn';
+import { SignUpScreen } from 'screens/SignUp';
 
 const Page: NextPage = (props) => {
-  return <SignInScreen {...props} />;
+  return <SignUpScreen {...props} />;
 };
 
 export default Page;

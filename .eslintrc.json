@@ -24,12 +24,90 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/no-explicit-any": 0
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "plugins": ["plugin:@nrwl/nx/react-typescript", "@m6web/i18n"],
+      "settings": {
+        "i18n": {
+          "principalLangs": [
+            {
+              "name": "en-common",
+              "translationPath": "libs/shared/assets/src/locales/en/common.json"
+            },
+            {
+              "name": "en-screen",
+              "translationPath": "libs/shared/assets/src/locales/en/screen.json"
+            }
+          ],
+          "secondaryLangs": [
+            {
+              "name": "cn-common",
+              "translationPath": "libs/shared/assets/src/locales/cn/common.json"
+            },
+            {
+              "name": "cn-screen",
+              "translationPath": "libs/shared/assets/src/locales/cn/screen.json"
+            }
+          ],
+          "functionName": "t",
+          "ignoreFiles": ["**/*.spec.js", "**/*.spec.ts"],
+          "pluralizedKeys": [],
+          "translationsCacheTTL": 300
+        }
+      },
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "rules": {
+        "@m6web/i18n/no-unknown-key": 0,
+        "@m6web/i18n/no-unknown-key-secondary-langs": 0,
+        "@m6web/i18n/no-text-as-children": [
+          "error",
+          {
+            "ignorePattern": "^\\s?[/.]\\s?$"
+          }
+        ],
+        "@m6web/i18n/no-text-as-attribute": [
+          "error",
+          {
+            "attributes": ["alt", "title"]
+          }
+        ],
+        "@m6web/i18n/interpolation-data": 0
+      }
+    },
+    {
+      "files": ["libs/shared/assets/src/locales/**/*.json"],
+      "extends": ["plugin:i18n-json/recommended"],
+      "plugins": ["@m6web/i18n"],
+      "rules": {
+        "i18n-json/valid-message-syntax": [
+          2,
+          {
+            "syntax": "non-empty-string"
+          }
+        ],
+        "i18n-json/valid-json": 2,
+        "i18n-json/sorted-keys": [
+          2,
+          {
+            "order": "asc",
+            "indentSpaces": 2
+          }
+        ],
+        "i18n-json/identical-keys": 0
+      }
     }
   ]
 }

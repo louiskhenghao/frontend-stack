@@ -3,6 +3,49 @@ import * as Types from '../@types/index';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {};
+export type GetAdminAuthProfileQueryVariables = Types.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetAdminAuthProfileQuery = {
+  __typename?: 'Query';
+  getAdminAuthProfile: {
+    __typename?: 'Admin';
+    id: string;
+    createdAt: any;
+    updatedAt: any;
+    role: Types.AdminRoleType;
+    email: string;
+    phoneCode?: string | null | undefined;
+    phoneNumber?: string | null | undefined;
+    avatar?: string | null | undefined;
+  };
+};
+
+export type AdminSignInMutationVariables = Types.Exact<{
+  input: Types.AdminSignInInput;
+}>;
+
+export type AdminSignInMutation = {
+  __typename?: 'Mutation';
+  adminSignIn: {
+    __typename?: 'AdminLoginPayload';
+    accessToken: string;
+    expiresIn: number;
+    admin: {
+      __typename?: 'Admin';
+      id: string;
+      createdAt: any;
+      updatedAt: any;
+      role: Types.AdminRoleType;
+      email: string;
+      phoneCode?: string | null | undefined;
+      phoneNumber?: string | null | undefined;
+      avatar?: string | null | undefined;
+    };
+  };
+};
+
 export type GetUserAuthProfileQueryVariables = Types.Exact<{
   [key: string]: never;
 }>;
@@ -180,6 +223,18 @@ export type GenerateSignedUrlMutation = {
   };
 };
 
+export type AdminInfoFragment = {
+  __typename?: 'Admin';
+  id: string;
+  createdAt: any;
+  updatedAt: any;
+  role: Types.AdminRoleType;
+  email: string;
+  phoneCode?: string | null | undefined;
+  phoneNumber?: string | null | undefined;
+  avatar?: string | null | undefined;
+};
+
 export type UserInfoFragment = {
   __typename?: 'User';
   id: string;
@@ -248,6 +303,18 @@ export type PageInfoFragmentFragment = {
   endCursor?: any | null | undefined;
 };
 
+export const AdminInfoFragmentDoc = gql`
+  fragment AdminInfo on Admin {
+    id
+    createdAt
+    updatedAt
+    role
+    email
+    phoneCode
+    phoneNumber
+    avatar
+  }
+`;
 export const UserInfoFragmentDoc = gql`
   fragment UserInfo on User {
     id
@@ -311,6 +378,119 @@ export const PageInfoFragmentFragmentDoc = gql`
     endCursor
   }
 `;
+export const GetAdminAuthProfileDocument = gql`
+  query getAdminAuthProfile {
+    getAdminAuthProfile {
+      ...AdminInfo
+    }
+  }
+  ${AdminInfoFragmentDoc}
+`;
+
+/**
+ * __useGetAdminAuthProfileQuery__
+ *
+ * To run a query within a React component, call `useGetAdminAuthProfileQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAdminAuthProfileQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAdminAuthProfileQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAdminAuthProfileQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetAdminAuthProfileQuery,
+    GetAdminAuthProfileQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    GetAdminAuthProfileQuery,
+    GetAdminAuthProfileQueryVariables
+  >(GetAdminAuthProfileDocument, options);
+}
+export function useGetAdminAuthProfileLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetAdminAuthProfileQuery,
+    GetAdminAuthProfileQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetAdminAuthProfileQuery,
+    GetAdminAuthProfileQueryVariables
+  >(GetAdminAuthProfileDocument, options);
+}
+export type GetAdminAuthProfileQueryHookResult = ReturnType<
+  typeof useGetAdminAuthProfileQuery
+>;
+export type GetAdminAuthProfileLazyQueryHookResult = ReturnType<
+  typeof useGetAdminAuthProfileLazyQuery
+>;
+export type GetAdminAuthProfileQueryResult = Apollo.QueryResult<
+  GetAdminAuthProfileQuery,
+  GetAdminAuthProfileQueryVariables
+>;
+export const AdminSignInDocument = gql`
+  mutation adminSignIn($input: AdminSignInInput!) {
+    adminSignIn(input: $input) {
+      admin {
+        ...AdminInfo
+      }
+      accessToken
+      expiresIn
+    }
+  }
+  ${AdminInfoFragmentDoc}
+`;
+export type AdminSignInMutationFn = Apollo.MutationFunction<
+  AdminSignInMutation,
+  AdminSignInMutationVariables
+>;
+
+/**
+ * __useAdminSignInMutation__
+ *
+ * To run a mutation, you first call `useAdminSignInMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAdminSignInMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [adminSignInMutation, { data, loading, error }] = useAdminSignInMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useAdminSignInMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    AdminSignInMutation,
+    AdminSignInMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<AdminSignInMutation, AdminSignInMutationVariables>(
+    AdminSignInDocument,
+    options
+  );
+}
+export type AdminSignInMutationHookResult = ReturnType<
+  typeof useAdminSignInMutation
+>;
+export type AdminSignInMutationResult =
+  Apollo.MutationResult<AdminSignInMutation>;
+export type AdminSignInMutationOptions = Apollo.BaseMutationOptions<
+  AdminSignInMutation,
+  AdminSignInMutationVariables
+>;
 export const GetUserAuthProfileDocument = gql`
   query getUserAuthProfile {
     getUserAuthProfile {

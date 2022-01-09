@@ -1,5 +1,23 @@
 # ======================================== QUERY & MUTATIONS ========================================
 
+# ADMIN
+# ========================
+query getAdminAuthProfile {
+  getAdminAuthProfile {
+    ...AdminInfo
+  }
+}
+
+mutation adminSignIn($input: AdminSignInInput!) {
+  adminSignIn(input: $input) {
+    admin {
+      ...AdminInfo
+    }
+    accessToken
+    expiresIn
+  }
+}
+
 # USER
 # ========================
 query getUserAuthProfile {
@@ -80,6 +98,19 @@ mutation generateSignedUrl($input: UploadRequest!) {
 }
 
 # ======================================== FRAGMENTS ========================================
+
+# ADMIN
+# ========================
+fragment AdminInfo on Admin {
+  id
+  createdAt
+  updatedAt
+  role
+  email
+  phoneCode
+  phoneNumber
+  avatar
+}
 
 # USER
 # ========================

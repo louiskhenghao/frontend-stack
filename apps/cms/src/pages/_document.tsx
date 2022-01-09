@@ -17,6 +17,8 @@ export default class MyDocument extends Document {
     const originalRenderPage = ctx.renderPage;
     AppRegistry.registerComponent(appInfo.name, () => Main);
     const { getStyleElement } = AppRegistry.getApplication(appInfo.name);
+
+    // ==== can inject your custom style with variables reference over here. eg: font icon
     const styles = [getStyleElement()];
 
     try {

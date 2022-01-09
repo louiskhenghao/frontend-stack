@@ -1,2 +1,82 @@
 @import '~antd/dist/antd.less';
 @import './variables.less';
+
+.lx-dashboard {
+  .lx-dashboard-layout {
+    .lx-dashboard-header {
+      @media screen and (max-width: 480px) {
+        .profile-name {
+          display: none;
+        }
+      }
+    }
+
+    .lx-dashboard-content-inner {
+      margin: 0 !important;
+      .crud-filter-wrapper,
+      .crud-table-wrapper {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 30px;
+
+        @media screen and (min-width: 768px) {
+          margin-left: 30px;
+          margin-right: 30px;
+        }
+      }
+
+      .crud-page-header-wrapper,
+      .crud-filter-wrapper,
+      .crud-table-wrapper .ant-table {
+        background: #fff;
+        padding: 15px;
+
+        @media screen and (min-width: 768px) {
+          padding: 30px;
+        }
+      }
+
+      .crud-page-header-wrapper {
+        padding-bottom: 15px;
+      }
+
+      .crud-table-wrapper .ant-table {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.lx-dashboard-menu-list {
+  &.ant-menu-inline-collapsed {
+    .ant-menu-item .ant-menu-item-icon svg,
+    .ant-menu-submenu .ant-menu-item-icon svg {
+      top: -6px;
+    }
+  }
+}
+
+.ant-layout-sider-collapsed {
+  .lx-dashboard-menu-title {
+    .menu-title {
+      display: none;
+    }
+  }
+}
+
+.lx-dashboard-menu-title {
+  display: flex;
+  justify-content: center;
+  a {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    .menu-title {
+      margin-left: 5px;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

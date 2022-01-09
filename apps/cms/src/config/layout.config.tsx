@@ -97,29 +97,35 @@ export const useLayoutMenus = (): {
       title: 'Dashboard',
       path: '/app/dashboard',
       includes: ['/app/dashboard'],
-      // authentication: true,
+      authentication: true,
     },
-    // {
-    //   key: 'catalog',
-    //   type: 'menu',
-    //   icon: <SkinOutlined />,
-    //   title: 'Catalog',
-    //   // authentication: true,
-    //   includes: [
-    //     '/app/catalog/all',
-    //     '/app/catalog/add',
-    //     '/app/catalog/update/[id]',
-    //   ],
-    //   submenu: [
-    //     {
-    //       key: 'my-catalog',
-    //       type: 'menu',
-    //       title: 'My Catalog',
-    //       path: '/app/catalog/all',
-    //       includes: ['/app/catalog/all'],
-    //     },
-    //   ],
-    // },
+    {
+      key: 'catalog',
+      type: 'menu',
+      icon: <SkinOutlined />,
+      title: 'Catalog',
+      authentication: true,
+      includes: [
+        '/app/catalog/all',
+        '/app/catalog/add',
+        '/app/catalog/update/[id]',
+      ],
+      submenu: [
+        {
+          key: 'my-catalog',
+          type: 'menu',
+          title: 'My Catalog',
+          path: '/app/catalog/all',
+          includes: ['/app/catalog/all'],
+        },
+        {
+          key: 'account-settings',
+          icon: <SettingOutlined />,
+          title: 'Settings',
+          path: '/settings',
+        },
+      ],
+    },
   ];
 
   return { header, sidebar };
