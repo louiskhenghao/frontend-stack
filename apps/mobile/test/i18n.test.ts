@@ -1,4 +1,4 @@
-const en = require('../app/i18n/en.json');
+import en from '@frontend-stack/shared/assets/locales/en/common.json';
 const { exec } = require('child_process');
 
 // Use this array for keys that for whatever reason aren't greppable so they
