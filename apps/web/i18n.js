@@ -9,14 +9,10 @@ module.exports = {
   pages: {
     '*': ['common', 'screen'],
   },
-  loadLocaleFrom: (lang, ns) => {
+  loadLocaleFrom: (lang, ns) =>
     // You can use a dynamic import, fetch, whatever. You should
     // return a Promise with the JSON file.
-    console.log('===================================== ---->', lang, ns);
-    return import(
-      `@frontend-stack/shared/assets/locales/${lang}/${ns}.json`
-    ).then((m) => {
-      return m.default;
-    });
-  },
+    import(`libs/shared/assets/src/locales/${lang}/${ns}.json`).then(
+      (m) => m.default
+    ),
 };

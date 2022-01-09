@@ -8,13 +8,16 @@ const withTM = require('next-transpile-modules');
 /**
  * =================================
  * Next.js configuration
+ * @type {import('next').NextConfig}
  * https://nextjs.org/docs/api-reference/next.config.js/introduction
  * https://github.com/vercel/next.js/blob/canary/packages/next/server/config-shared.ts#L68
+
  */
 const nextConfig = {};
 
 /**
  * =================================
+ * Nx NextJs Plugin
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const plugninNx = withNx({
