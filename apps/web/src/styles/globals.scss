@@ -1,0 +1,8 @@
+@import '~tailwindcss/base';
+@import '~tailwindcss/components';
+@import '~tailwindcss/utilities';
+
+// fix google map autocomplete z-index issue in react native Modal
+.pac-container {
+  z-index: 10000;
+}

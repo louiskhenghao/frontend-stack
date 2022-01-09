@@ -14,7 +14,7 @@ import authOptions from 'config/auth.config';
 import apolloOptions from 'config/apollo.config';
 import { useLayoutMenus } from 'config/layout.config';
 require('../styles/styles.less');
-// import './styles.css';
+import 'styles/globals.scss';
 
 const MyApp = (props: AppProps) => {
   const { Component, pageProps, router } = props;
@@ -22,6 +22,8 @@ const MyApp = (props: AppProps) => {
   // ================= HOOKS
   const { sidebar, header } = useLayoutMenus();
   const { authUser, config, signout } = useAuthIdentity();
+
+  console.log('sidebar ----->', sidebar);
 
   // ================= VARIABLES
   const { pathname, asPath } = router;

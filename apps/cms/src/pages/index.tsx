@@ -20,7 +20,9 @@ export function Index() {
     <StyledPage>
       <Button title="HEHEH" />
       <div className="wrapper">
-        {t('common:hello')} from {t('common:brand')}
+        <div className="text-3xl font-bold underline p-10 bg-red-200">
+          {t('common:hello')} from {t('common:brand')}
+        </div>
         <div className="container">
           <div id="welcome">
             <h1>

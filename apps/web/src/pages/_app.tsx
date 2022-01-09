@@ -9,7 +9,7 @@ import {
 } from '@lava-x/next-js';
 import authOptions from 'config/auth.config';
 import apolloOptions from 'config/apollo.config';
-// import './styles.css';
+import 'styles/globals.scss';
 
 const MyApp = (props: AppProps) => {
   const { Component, pageProps, router } = props;
