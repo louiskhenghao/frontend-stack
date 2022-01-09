@@ -79,6 +79,7 @@
     "@babel/plugin-proposal-decorators": "*",
     "@babel/plugin-proposal-optional-catch-binding": "*",
     "@babel/runtime": "*",
+    "@bam.tech/react-native-make": "*",
     "@storybook/addon-storyshots": "*",
     "@storybook/react-native": "*",
     "@storybook/react-native-server": "*",

@@ -9,13 +9,6 @@
         "port": 8081
       }
     },
-    "start-reset-cache": {
-      "executor": "@nrwl/react-native:start",
-      "options": {
-        "port": 8081,
-        "resetCache": true
-      }
-    },
     "serve": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
@@ -88,6 +81,12 @@
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "npx react-native-rename"
+      }
+    },
+    "generate-icon": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "cd apps/mobile && yarn react-native set-icon --path ../../libs/shared/assets/src/images/icon.png"
       }
     }
   },
