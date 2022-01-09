@@ -7,7 +7,14 @@
     "moduleResolution": "node",
     "noEmit": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@frontend-stack/shared/assets/*": ["libs/shared/assets/src/*"],
+      "@frontend-stack/data-access": ["libs/data-access/src/index.ts"],
+      "@frontend-stack/shared/components": [
+        "libs/shared/components/src/index.ts"
+      ]
+    }
   },
   "files": ["../../node_modules/@nrwl/react/typings/image.d.ts"],
   "include": [],
