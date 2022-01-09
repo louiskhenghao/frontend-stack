@@ -109,6 +109,7 @@
     "jest": "*",
     "jest-circus": "*",
     "jest-expo": "*",
+    "jest-fetch-mock": "*",
     "jetifier": "*",
     "npm-run-all": "*",
     "patch-package": "*",

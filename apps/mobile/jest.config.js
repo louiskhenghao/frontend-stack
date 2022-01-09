@@ -17,6 +17,6 @@ module.exports = {
   },
   testPathIgnorePatterns: ['/node_modules/'],
   transformIgnorePatterns: [
-    'node_modules/(?!(jest-)?react-native|@react-native-community|expo-linear-gradient|@react-native|@react-native-async-storage|@react-navigation|@storybook|expo-localization|expo-modules-core|@unimodules)',
+    'node_modules/(?!(jest-)?react-native|@react-native-community|expo-linear-gradient|@react-native|@react-native-async-storage|@react-navigation|@storybook|expo-font|expo-asset|expo-constants|expo-localization|expo-modules-core|@unimodules)',
   ],
 };
