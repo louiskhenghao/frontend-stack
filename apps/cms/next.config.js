@@ -13,7 +13,12 @@ const withTM = require('next-transpile-modules');
  * https://github.com/vercel/next.js/blob/canary/packages/next/server/config-shared.ts#L68
 
  */
-const nextConfig = {};
+const nextConfig = {
+  poweredByHeader: false,
+  images: {
+    domains: ['tailwindcss.com'],
+  },
+};
 
 /**
  * =================================
@@ -23,7 +28,7 @@ const nextConfig = {};
 const plugninNx = withNx({
   // Set this to true if you would like to to use SVGR
   // See: https://github.com/gregberge/svgr
-  svgr: true,
+  svgr: false,
 });
 
 /**

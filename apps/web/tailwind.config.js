@@ -4,8 +4,7 @@ const createTailwindConfig = require(`${appRootPath}/tools/config/tailwind`);
 
 // create & extend tailwind config
 module.exports = createTailwindConfig({
-  content: [`${__dirname}/src/**/*!(.spec|.stories).{jsx,tsx}`],
-  purge: [
+  content: [
     ...createGlobPatternsForDependencies(__dirname),
     `${appRootPath}/apps/web/src/components/**/*.{js,ts,jsx,tsx}`,
     `${appRootPath}/apps/web/src/containers/**/*.{js,ts,jsx,tsx}`,

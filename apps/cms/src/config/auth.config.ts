@@ -9,7 +9,7 @@ import {
   PATHS_FOR_ADMIN_ONLY,
   NO_LAYOUT_PATH,
 } from 'config/constant';
-import checkAuthProfile from 'config/getAuthProfile';
+import checkAuthProfile from 'config/auth.query';
 import { AuthOptions } from '@lava-x/next-js';
 
 const authOptions: AuthOptions = {

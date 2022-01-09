@@ -1,24 +1,25 @@
 import React from 'react';
-import { Button } from 'react-native';
-import { NextPage } from 'next';
-import setLanguage from 'next-translate/setLanguage';
+import { Typography, Row, Col } from 'antd';
 import useTranslation from 'next-translate/useTranslation';
-import { HelloWorld, KIKI } from '@frontend-stack/shared/components';
+import { HelloWorld } from '@frontend-stack/shared/components';
+import StyledContentWrapper from 'components/StyledContentWrapper';
 
-const Page: NextPage = () => {
+export const DashboardScreen: React.FC = () => {
   const { t } = useTranslation('common');
 
   // ==================== VIEWS
   return (
-    <div className="min-h-screen">
-      <h1 className="text-3xl font-bold underline p-10 bg-red-200">
-        {t('common:hello')} from {t('common:brand')}
-      </h1>
+    <StyledContentWrapper className="mt-8">
+      <Row className="mb-4">
+        <Col>
+          <Typography.Title level={4}>
+            With React Native Web Component
+          </Typography.Title>
+          <HelloWorld />
+        </Col>
+      </Row>
 
-      <Button onPress={() => setLanguage('en')} title="ENGLISH" />
-      <Button onPress={() => setLanguage('cn')} title="CHINESE" />
-      <HelloWorld />
-      <KIKI />
+      <Typography.Title level={4}>With Tailwindcss</Typography.Title>
       <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
         <img
           className="w-full"
@@ -33,8 +34,8 @@ const Page: NextPage = () => {
           </p>
         </div>
       </div>
-    </div>
+    </StyledContentWrapper>
   );
 };
 
-export default Page;
+export default DashboardScreen;

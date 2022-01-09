@@ -1,29 +1,27 @@
 import React from 'react';
 import { SignInView } from '@lava-x/antd';
-import { CenterWrapperView } from '@lava-x/components';
 import { setAuthToken, redirect } from '@lava-x/next-js';
+import { useAdminSignInMutation } from '@frontend-stack/data-access';
 import useTranslation from 'next-translate/useTranslation';
-import { useUserSignInMutation } from '@frontend-stack/data-access';
+import logo from '@frontend-stack/shared/assets/images/logo.svg';
 import { DEFAULT_PATH_AFTER_SIGN_IN } from 'config/constant';
-import Logo from '@frontend-stack/shared/assets/images/logo.svg';
+import { StyledCenterViewWrapper } from './styles';
 
-const SignInScreen: React.FC = () => {
-  const { t } = useTranslation('common');
+export const SignInScreen: React.FC = () => {
+  const { t } = useTranslation('screen');
+
+  // ==================== VIEWS
   return (
-    <CenterWrapperView
-      // logo={Logo}
-      logo={Logo}
-      title={t('pages.signin')}
-    >
+    <StyledCenterViewWrapper logo={logo} title={t('signin.title')}>
       <SignInView
         useActionHook={{
-          key: 'useSignIn',
-          query: useUserSignInMutation,
+          key: 'adminSignIn',
+          query: useAdminSignInMutation,
         }}
         constructPayload={(e) => {
           return {
             input: {
-              username: e.email,
+              email: e.email,
               password: e.password,
             },
           };
@@ -34,7 +32,7 @@ const SignInScreen: React.FC = () => {
         redirectPath={DEFAULT_PATH_AFTER_SIGN_IN}
         navigate={(method, path) => redirect({}, path, method)}
       />
-    </CenterWrapperView>
+    </StyledCenterViewWrapper>
   );
 };
 

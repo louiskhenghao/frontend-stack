@@ -1,19 +1,18 @@
 import React from 'react';
 import { SignUpView } from '@lava-x/antd';
 import { redirect, setAuthToken } from '@lava-x/next-js';
-import { CenterWrapperView } from '@lava-x/components';
+import { useUserSignInMutation } from '@frontend-stack/data-access';
 import useTranslation from 'next-translate/useTranslation';
-import {
-  useUserSignInMutation,
-  // useUserSignInWithSocialMutation
-} from '@frontend-stack/data-access';
 import { DEFAULT_PATH_AFTER_SIGN_IN } from 'config/constant';
-import Logo from '@frontend-stack/shared/assets/images/logo.svg';
+import logo from '@frontend-stack/shared/assets/images/logo.svg';
+import { StyledCenterViewWrapper } from './styles';
 
-const SignUpScreen: React.FC = () => {
-  const { t } = useTranslation('common');
+export const SignUpScreen: React.FC = () => {
+  const { t } = useTranslation('screen');
+
+  // ==================== VIEWS
   return (
-    <CenterWrapperView logo={Logo} title={t('pages.signup')}>
+    <StyledCenterViewWrapper logo={logo} title={t('signup.title')}>
       <SignUpView
         fields={['username', 'email', 'name']}
         useActionHook={{
@@ -34,7 +33,7 @@ const SignUpScreen: React.FC = () => {
           redirect({}, `/account/verification/${context}`);
         }}
       />
-    </CenterWrapperView>
+    </StyledCenterViewWrapper>
   );
 };
 
