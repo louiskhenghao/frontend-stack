@@ -17,7 +17,8 @@
     "run:web": "cross-env NEXT_TRANSLATE_PATH=apps/web yarn start web --prod",
     "test:cms": "yarn test cms",
     "test:web": "yarn test web",
-    "generate:graphql": "nx run data-access:generate",
+    "generate:theme": "nx run ui-theme:generate",
+    "generate:gql": "nx run data-access:generate",
     "generate:component": "yarn nx g @nrwl/react-native:component --project=shared-components --directory=components --pascalCaseFiles=true --export=true",
     "locale:fix": "eslint --fix --format node_modules/eslint-plugin-i18n-json/formatter.js libs/shared/assets/src/locales/**/*.json --no-ignore"
   },
@@ -28,6 +29,10 @@
     "@lava-x/helpers": "2.1.11",
     "@lava-x/next-js": "2.1.11",
     "@nrwl/next": "^13.4.3",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.0",
+    "@tailwindcss/typography": "^0.5.0",
     "antd": "4.16.13",
     "autoprefixer": "^10.4.2",
     "core-js": "^3.6.5",
@@ -48,6 +53,7 @@
     "regenerator-runtime": "0.13.7",
     "sass": "^1.47.0",
     "styled-components": "5.3.3",
+    "tailwind-rn": "^3.0.1",
     "tailwindcss": "^3.0.12",
     "tslib": "^2.0.0"
   },

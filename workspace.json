@@ -8,6 +8,7 @@
     "mobile-e2e": "apps/mobile-e2e",
     "shared-assets": "libs/shared/assets",
     "shared-components": "libs/shared/components",
+    "ui-theme": "libs/ui-theme",
     "web": "apps/web",
     "web-e2e": "apps/web-e2e"
   }
