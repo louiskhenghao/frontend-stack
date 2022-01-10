@@ -1,6 +1,6 @@
 const { appRootPath } = require('@nrwl/tao/src/utils/app-root');
 
-const rootTailwindConfig = require(`${appRootPath}/tailwind.config.js`);
+const rootTailwindConfig = require(`${appRootPath}/libs/ui-theme/tailwind.config.js`);
 
 module.exports = (tailwindConfig = {}) => {
   const rootContent = rootTailwindConfig.content || [];
