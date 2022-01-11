@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import setLanguage from 'next-translate/setLanguage';
 import useTranslation from 'next-translate/useTranslation';
 import { HelloWorld, KIKI } from '@frontend-stack/shared/components';
+import { tw } from '@frontend-stack/ui-theme';
 
 const Page: NextPage = () => {
   const { t } = useTranslation('common');
@@ -33,6 +34,20 @@ const Page: NextPage = () => {
           </p>
         </div>
       </div>
+
+      <div className="bg-primary h-2 w-full"></div>
+      <div className="bg-secondary h-2 w-full"></div>
+      <div className="bg-normal h-2 w-full"></div>
+      <div className="bg-light h-2 w-full"></div>
+      <div className="bg-accent h-2 w-full"></div>
+      <div className="bg-info h-2 w-full"></div>
+      <div className="bg-success h-2 w-full"></div>
+      <div className="bg-warning h-2 w-full"></div>
+      <div className="bg-error h-2 w-full"></div>
+      <div className="bg-disabled h-2 w-full"></div>
+
+      <hr />
+      <div style={tw('bg-primary h-2 w-full p-lg')}></div>
     </div>
   );
 };

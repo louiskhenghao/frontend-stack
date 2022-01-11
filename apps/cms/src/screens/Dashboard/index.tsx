@@ -34,6 +34,8 @@ export const DashboardScreen: React.FC = () => {
           </p>
         </div>
       </div>
+      <div className="bg-primary h-2 w-full"></div>
+      <div className="bg-secondary h-2 w-full"></div>
     </StyledContentWrapper>
   );
 };
