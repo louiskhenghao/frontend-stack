@@ -84,7 +84,7 @@
     "rename": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "command": "npx react-native-rename"
+        "command": "cd apps/mobile && npx react-native-rename {args.name} -b {args.identifier}"
       }
     },
     "generate-icon": {
