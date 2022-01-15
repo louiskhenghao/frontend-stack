@@ -2566,6 +2566,18 @@
     styled-components "5.3.0"
     subscriptions-transport-ws "^0.9.18"
 
+"@lava-x/react-native-rename@^2.9.3":
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/@lava-x/react-native-rename/-/react-native-rename-2.9.3.tgz#143e5fe2ed3f69f9f0225f3e2defce4f8fb61792"
+  integrity sha512-2iRR6dQXXwVrzxNVZsluOeMgufxt/hZYdJvfGOBgTF0oIGOuWQ4FsYInAm/XmBXMAVAkiLjTw1fxTdaEJWhm2A==
+  dependencies:
+    cheerio "^0.22.0"
+    colors "^1.1.2"
+    commander "^2.9.0"
+    globby "^11.0.1"
+    node-replace "^0.3.3"
+    shelljs "^0.8.4"
+
 "@m6web/eslint-plugin-i18n@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@m6web/eslint-plugin-i18n/-/eslint-plugin-i18n-1.5.0.tgz#77e329bd7c6988e9e6cf0e5eb50d54ee5995acf9"
@@ -20169,18 +20181,6 @@ react-native-keychain@6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/react-native-keychain/-/react-native-keychain-6.2.0.tgz#8f4cff503aad367141db5aea0189ead9240c28ff"
   integrity sha512-U6fnOQRJPq+c0Abl+FoYy9v0H3kQU587tMamU/o+MoBSUScFLE3DQpkyT1PW4NF5IObgiGuqQdmjC2KgtBpjGA==
-
-react-native-rename@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-rename/-/react-native-rename-2.9.0.tgz#3e8c20f048204e9ac77ff098aeb976cce9e45244"
-  integrity sha512-11ak35lhjSk8lWMzJWcFQRvRu/PD7/S+CSwg1NKXo8MvxKh4PXoJCJO5x9kwVNrzFbJng30qssSixFaU2Kwn0A==
-  dependencies:
-    cheerio "^0.22.0"
-    colors "^1.1.2"
-    commander "^2.9.0"
-    globby "^11.0.1"
-    node-replace "^0.3.3"
-    shelljs "^0.8.4"
 
 react-native-safe-area-context@3.1.8:
   version "3.1.8"
