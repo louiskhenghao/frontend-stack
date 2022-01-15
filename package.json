@@ -183,6 +183,7 @@
     "react-devtools-core": "4.10.1",
     "react-native-clean-project": "^3.6.3",
     "react-native-colo-loco": "^1.0.0",
+    "react-native-rename": "^2.9.0",
     "react-native-svg": "12.1.1",
     "react-native-svg-transformer": "0.14.3",
     "react-powerplug": "1.0.0",

@@ -119,6 +119,7 @@
     "react-dom": "*",
     "react-native-clean-project": "*",
     "react-native-colo-loco": "*",
+    "react-native-rename": "*",
     "react-native-web": "*",
     "react-powerplug": "*",
     "solidarity": "*",
