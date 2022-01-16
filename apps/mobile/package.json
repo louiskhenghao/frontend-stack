@@ -71,8 +71,8 @@
     "react-native-flash-message": "*",
     "react-native-web": "*",
     "solidarity": "*",
+    "tailwind-rn": "*",
     "typescript": "*",
-    "twrnc": "*",
     "@testing-library/react-native": "*",
     "@testing-library/jest-native": "*",
     "react-native-vector-icons": "*"
