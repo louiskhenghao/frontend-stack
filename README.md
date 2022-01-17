@@ -95,8 +95,47 @@ $ yarn dev:cms
 # to start `web` development server
 $ yarn dev:web
 
-# to start `mobile` development server
-$ yarn dev:mobile
+```
+
+Mobile
+
+```bash
+# to start metro bundler
+$ yarn mobile:start
+
+# to run project in ios simulator
+$ yarn mobile:ios
+
+# to run project in android emulator
+$ yarn mobile:android
+
+# to build project for ios e2e testing
+$ yarn mobile:ios-build-e2e
+
+# to run ios e2e testing in emulator
+$ yarn mobile:ios-test-e2e
+
+# to build project for android e2e testing
+$ yarn mobile:android-build-e2e
+
+# to run android e2e testing in emulator
+$ yarn mobile:android-test-e2e
+
+# to generate apk
+$ yarn mobile:generate-apk
+
+# to generate icon automatically for project (refer mobile/project.json to check or modify the icon path )
+$ yarn mobile:generate-icon
+
+# to rename mobile app (name and identifier is a must, identifier will be used for both platform)
+$ yarn mobile:rename --name=YOURNAME --identifier=com.xxx.xxx
+
+# to run test for mobile project
+$ yarn mobile:test
+
+# to make sure android to connect to services such as reactotron, android device remotely
+$ yarn adb
+
 ```
 
 Miscellaneous
