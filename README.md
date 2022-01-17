@@ -1,51 +1,6 @@
-```bash
+# NextJs + React Native Web + React Native with NX
 
-
-
-
-```
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@frontend-stack/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-# Nx - NextJs + React Native Web + React Native
-
-🔎 **Smart, Fast and Extensible Build System**
-
-# Table of contents
+## Table of contents
 
 - [Used of Technologies](#used-of-technologies)
 - [Getting Started](#getting-started)
@@ -63,10 +18,10 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
 # Used of Technologies
 
-1.  Monorepo - `yarn workspace`
+1.  NX - `NX`
 2.  Coding styles - `TypeScript`
 3.  UI styles - `styled-components`
-4.  UI Framework - `AntDesign` (cms), `Tailwind` (web, mobile)
+4.  UI Framework - `AntDesign` (cms), `Tailwind` (cms, web, mobile)
 5.  Coding Practice - `Eslint` rules for `(.ts, .tsx)`
 6.  API Integration - `GraphQL (with codegen)`
 
@@ -74,7 +29,7 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
 # Getting Started
 
-1. Install dependencies `yarn install`
+1. Install dependencies `yarn`
 2. Run development server
 3. Start coding
 
@@ -102,11 +57,9 @@ $ yarn dev:mobile
 Miscellaneous
 
 ```bash
-# to view tailwind theme
-$ yarn theme:viewer
 
 # to generate graphl Types, Docs, Hooks, etc
-$ yarn generate:gql
+$ yarn generate:graphql
 
 # generate shared ui components (React Native)
 $ yarn generate:component [componentName]
@@ -140,20 +93,14 @@ $ yarn run:web
 
 ```
 
-If you wish to install/remove dependencies in projects or packages, you can use command below
+If you wish to install/remove dependencies into projects, you can use command below
 
 ```bash
 # to install dependencies
-yarn workspace <TARGET> add <DEPENDENCIES>
+yarn add <DEPENDENCIES>
 
 # to remove dependencies
-yarn workspace <TARGET> remove <DEPENDENCIES>
-
-# to run specific script for selected packages/projects
-yarn workspace <TARGET> run <SCRIPT>
-
-
-yarn nx
+yarn remove <DEPENDENCIES>
 ```
 
 ---
@@ -161,35 +108,34 @@ yarn nx
 ## Folder Structure
 
 ```
-├── packages
-│   ├── common-assets # Assets files (png, jpeg, json, etc)
-│   ├── common-graphql # GraphQL Types, Documents, Hooks, etc
-│   ├── common-locale # Translation locale files
-│   ├── ui-native # React Native UI Components
-│   └── ui-theme # theme configuration accross mobile & web (cms coming soon)
-└── projects
-    ├── cms # cms panel
-    ├── mobile # end user mobile application
-    └── web # end user web application
-
+├── projects
+│    ├── cms # cms panel
+│    ├── mobile # end user mobile application
+│    └── web # end user web application
+└── libs
+    ├── data-access # GraphQL Types, Documents, Hooks, etc
+    ├── shared # Translation locale files
+    │     ├── assets # Shared assets (images, locales)
+    │     └── components # React Native UI Components
+    └── ui-theme # theme configuration accross mobile & web (cms coming soon)
 ```
 
 ---
 
 ## Assets
 
-If you have common assets that want to shared across projects & packages, you add added thos file under folder `packages/common-assets`. Then you can import your preferred assets with below example
+If you have common assets that want to shared across projects & packages, you add added thos file under folder `libs/shared/assets`. Then you can import your preferred assets with below example
 
 ```TypeScript
 // In react project
-import logo from "@common/assets/static/logo-brand.png";
+import logo from "@frontend-stack/assets/images/logo-brand.png";
 
 <img src={logo} />
 
 // In react native project
 import { Image } from "react-native";
 
-const logo = require("@common/assets/static/logo-brand.png");
+const logo = require("@frontend-stack/assets/images/logo-brand.png");
 <Image source={logo} />
 
 ```
@@ -198,7 +144,7 @@ const logo = require("@common/assets/static/logo-brand.png");
 
 ## Translation
 
-Translation locales can be shared among `cms`, `web` & `mobile` projects under `packages/common-locale`. You can have multiple locale files (JSON) within a language folder. This monorepo has come with two languanges by default, you may refer to the folder structure below & feel free to make changes
+Translation locales can be shared among `cms`, `web` & `mobile` projects under `libs/shared/assets/src/locales`. You can have multiple locale files (JSON) within a language folder. This monorepo has come with two languanges by default, you may refer to the folder structure below & feel free to make changes
 
 ```
 ├── cn
@@ -254,7 +200,7 @@ For `mobile` projects, you can do refer to the example below
 
 ```TypeScript
 import { Text } from "react-native";
-import { Button } from "@ui/native";
+import { Button } from "@frontend-stack/shared/components";
 import { useTranslation } from "i18n"; // <--- always import from "i18n"
 
 export default function SomeComponent() {
@@ -325,7 +271,7 @@ This monorepo enable theme configuration accross packages & projects. There were
 For minimal usage, just modify constant values for ` colors`, `palatte`, `spacing` under `config` folder and you can access the value by importing the package. For example
 
 ```TypeScript
-import { colors, palette, spacing } from "@ui/theme";
+import { colors, palette, spacing } from "@frontend-stack/ui-theme";
 
 colors.primary // primary color
 palette.black // black color
@@ -350,10 +296,10 @@ If you wish to have advanced configuration, please checkout the [official docume
 To apply tailwind style for `react` or `react-native` project, you can do something like below:
 
 ```TypeScript
-// in react-native project use with `@ui/theme` for styling
+// in react-native project use with `@frontend-stack/ui-theme` for styling
 import { View } from "react-native";
-import { Text } from "@ui/native";
-import { tw } from "@ui/theme";
+import { Text } from "@frontend-stack/shared/components";
+import { tw } from "@frontend-stack/ui-theme";
 
 <View style={tw("bg-primary")}>
   <Text>View with primary color background</Text>
@@ -376,29 +322,15 @@ For Ant.Design theme configuration, you may update the `custom.less` under `proj
 
 ---
 
-## Reusable Components
-
-In this skeleton there were few reusable components that created to be shared accross web & mobile project in purpose. There will be components added to this skeleton from time to time, please stay tuned and at the meantime you may check below section for existing component documentation
-
-1. `Screen` - [documentation](./packages/ui-native/src/components/Screen/README.md)
-2. `Button` - [documentation](./packages/ui-native/src/components/Button/README.md)
-3. `Text` - [documentation](./packages/ui-native/src/components/Text/README.md)
-4. `TextInput` - [documentation](./packages/ui-native/src/components/TextInput/README.md)
-5. `LoginView` - [documentation](./packages/ui-native/src/components/Form/LoginView/README.md)
-
-**Note: You may check `@ui/native` (packages/ui-native) packages for more information**
-
----
-
 ## GraphQL CodeGen
 
-First step is change the schema url to your development server at `./packages/common-graphql/.codegen.yml`
+First step is change the schema url to your development server at `./libs/data-access/.codegen.yml`
 
 ```yml
 schema: 'http://localhost:3000/graphql'
 ```
 
-Second step find the operations file at `./packages/common-graphql/src/operations/index.graphql` and modify it, for example
+Second step find the operations file at `./libs/data-access/src/operations/index.graphql` and modify it, for example
 
 ```GraphQL
 fragment UserInfo on User {
@@ -418,15 +350,15 @@ query getAuthProfile {
 }
 ```
 
-Third Step is to generate the GraphQL Types, Documents, Hooks by running the command `yarn gql:generate`
+Third Step is to generate the GraphQL Types, Documents, Hooks by running the command `yarn generate:gql`
 ![GraphQL Codegen](./docs/gql-generate.gif)
 
 Fourth Step is to import any of Types, Documents, Hooks to your components or the places you wants to use it
 
 ```js
-// example from src/config/getAuthProfile.ts
+// example from /apps/xxx/src/config/auth.query.ts
 import get from 'lodash/get';
-import { GetAuthProfileDocument } from '@common/graphql';
+import { GetAuthProfileDocument } from '@frontend-stack/data-access';
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
 export default (
