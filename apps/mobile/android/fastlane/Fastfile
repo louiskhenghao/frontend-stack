@@ -1,0 +1,69 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Submit a new Internal Build to Play Store"
+  lane :internal do
+    gradle(task: "clean bundleRelease")
+    upload_to_play_store(
+      track: "internal",
+      skip_upload_apk:true,
+    )
+  end
+
+  desc "Submit a new Alpha Build to Play Store"
+  lane :alpha do
+    gradle(task: "clean bundleRelease")
+    upload_to_play_store(
+      track: "alpha",
+      skip_upload_apk:true,
+    )
+  end
+
+  desc "promote the current alpha build to the beta track"
+  lane :beta do
+    version_codes = google_play_track_version_codes(track: "alpha")
+
+    version_code = version_codes.first
+
+    supply_params = {
+      track: "alpha",
+      track_promote_to: "beta",
+      version_code: version_code,
+    }
+    supply(supply_params)
+  end
+
+  desc "promote the current beta build to the production track"
+  lane :production do
+    version_codes = google_play_track_version_codes(track: "beta")
+
+    version_code = version_codes.first
+
+    supply_params = {
+      track: "beta",
+      track_promote_to: "production",
+      version_code: version_code,
+    }
+    supply(supply_params)
+  end
+end

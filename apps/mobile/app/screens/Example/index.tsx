@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import tw from 'twrnc';
+import { tw } from '@frontend-stack/ui-theme';
 import { Svg, Circle, Rect, SvgUri, SvgCssUri } from 'react-native-svg';
 import Logo from '@frontend-stack/shared/assets/images/logo.svg';
 import { HelloWorld } from '@frontend-stack/shared/components';
@@ -11,7 +11,10 @@ export const ExampleScreen = () => {
   const { t } = useTranslation('common');
 
   return (
-    <View testID="ExampleScreen" style={tw`flex-1 justify-center items-center`}>
+    <View
+      testID="ExampleScreen"
+      style={tw('flex-1 justify-center items-center')}
+    >
       <Text>
         {t('common:hello')} from {t('common:brand')}
       </Text>

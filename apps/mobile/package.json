@@ -1,5 +1,5 @@
 {
-  "name": "mobile",
+  "name": "LavaXMobileApp",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -71,8 +71,8 @@
     "react-native-flash-message": "*",
     "react-native-web": "*",
     "solidarity": "*",
+    "tailwind-rn": "*",
     "typescript": "*",
-    "twrnc": "*",
     "@testing-library/react-native": "*",
     "@testing-library/jest-native": "*",
     "react-native-vector-icons": "*"
@@ -83,6 +83,7 @@
     "@babel/plugin-proposal-optional-catch-binding": "*",
     "@babel/runtime": "*",
     "@bam.tech/react-native-make": "*",
+    "@lava-x/react-native-rename": "*",
     "@storybook/addon-storyshots": "*",
     "@storybook/react-native": "*",
     "@storybook/react-native-server": "*",

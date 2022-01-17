@@ -12,12 +12,14 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:4.2.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.huawei.agconnect:agcp:1.6.2.300'
     }
 }
 
@@ -38,6 +40,9 @@ allprojects {
             // All of Detox' artifacts are provided via the npm module
             url "$rootDir/../node_modules/detox/Detox-android"
         }
+
+         //HMS Core
+        maven { url 'https://developer.huawei.com/repo/' }
 
         google()
         maven { url 'https://www.jitpack.io' }

@@ -1,9 +1,9 @@
 {
-  "name": "mobile",
-  "displayName": "mobile",
+  "name": "LavaXMobileApp",
+  "displayName": "LavaXMobileApp",
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "LavaXMobileApp",
+    "slug": "LavaXMobileApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
