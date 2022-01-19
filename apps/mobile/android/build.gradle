@@ -4,18 +4,22 @@ buildscript {
     ext {
         buildToolsVersion = "30.0.2"
         minSdkVersion = 21
-        compileSdkVersion = 30
-        targetSdkVersion = 30
+        compileSdkVersion = 29
+        targetSdkVersion = 29
         ndkVersion = "21.4.7075529"
+        kotlin_version = "1.6.0" // Update this to your version
     }
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:4.2.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.huawei.agconnect:agcp:1.6.2.300'
     }
 }
 
@@ -25,23 +29,22 @@ allprojects {
         mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url("$rootDir/../node_modules/react-native/android")
+            url(new File(["node", "--print", "require.resolve('react-native/package.json')"].execute().text.trim(), "../android"))
         }
         maven {
             // Android JSC is installed from npm
-            url("$rootDir/../node_modules/jsc-android/dist")
+            url(new File(["node", "--print", "require.resolve('jsc-android/package.json')"].execute().text.trim(), "../dist"))
         }
+
+        maven {
+            // All of Detox' artifacts are provided via the npm module
+            url "$rootDir/../node_modules/detox/Detox-android"
+        }
+
+         //HMS Core
+        maven { url 'https://developer.huawei.com/repo/' }
 
         google()
         maven { url 'https://www.jitpack.io' }
-
-
-        
-        maven {
-            // All of the Detox artifacts are provided via the npm module
-            url("$rootDir/../../../node_modules/detox/Detox-android")
-        }
-        
-
     }
 }

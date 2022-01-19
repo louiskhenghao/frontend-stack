@@ -1,11 +1,11 @@
 import { device, element, by, expect } from 'detox';
 
-describe('Mobile', () => {
+describe('mobile', () => {
   beforeEach(async () => {
     await device.reloadReactNative();
   });
 
-  it('should display welcome message', async () => {
-    await expect(element(by.id('heading'))).toHaveText('Welcome Mobile 👋');
+  it('should have example screen', async () => {
+    await expect(element(by.id('ExampleScreen'))).toBeVisible();
   });
 });
