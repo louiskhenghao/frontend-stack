@@ -45,13 +45,13 @@ Available commands:
 ```bash
 
 # to start `cms` development server
-$ yarn dev:cms
+$ yarn cms:dev
 
 # to start `web` development server
-$ yarn dev:web
+$ yarn web:dev
 
 # to start `mobile` development server
-$ yarn dev:mobile
+$ yarn mobile:dev
 ```
 
 Miscellaneous
