@@ -119,3 +119,32 @@ This directory will hold your Jest configs and mocks, as well as your [storyshot
 ## Running e2e tests
 
 Following NX monorepo standard, the e2e test for mobile will be at another folder named mobile-e2e. Please refer to the README at root for command to run.
+
+## Fastlane Setup
+
+We had prepared the fastlane setup for you already. You only need to modify:
+
+**Android**
+
+1. JSON key path and file name in apps/mobile/android/fastlane/Appfile
+
+**IOS**
+
+1. [itc_team_id](https://developer.apple.com/forums/thread/77563) and [team_id](https://stackoverflow.com/questions/42960644/how-to-get-itunes-connect-team-id-and-team-name) in apps/mobile/android/fastlane/Appfile
+2. git_url in apps/mobile/android/fastlane/Matchfile, please refer to Notion for fastlane match command for IOS cert management
+
+p.s. Please note that fastlane is setup using dev@lavax.co. Don't modify it.
+
+## Checklist to do after cloning
+
+[ ] Rename your app by running rename command at root (please include bundle id)
+
+[ ] Clean necessary folder/file after rename
+
+[ ] Replace your app icon (logo.png) at libs/shared/assets/src/images
+
+[ ] Run generate icon command at root
+
+[ ] Update the fastlane config
+
+[ ] Test run the automated testing (jest and detox)

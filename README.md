@@ -76,7 +76,7 @@ $ yarn mobile:android-build-e2e
 # to run android e2e testing in emulator
 $ yarn mobile:android-test-e2e
 
-# to generate apk
+# to generate apk, please do not use this to send to client, for internal use only
 $ yarn mobile:generate-apk
 
 # to generate icon automatically for project (refer mobile/project.json to check or modify the icon path )
@@ -136,6 +136,7 @@ If you wish to install/remove dependencies into projects, you can use command be
 
 ```bash
 # to install dependencies
+# for mobile, after package installed, please modify mobile/package.json example : "mobx": "*"
 yarn add <DEPENDENCIES>
 
 # to remove dependencies
