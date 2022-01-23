@@ -50,8 +50,47 @@ $ yarn cms:dev
 # to start `web` development server
 $ yarn web:dev
 
-# to start `mobile` development server
+```
+
+Mobile
+
+```bash
+# to start metro bundler
 $ yarn mobile:dev
+
+# to run project in ios simulator
+$ yarn mobile:ios
+
+# to run project in android emulator
+$ yarn mobile:android
+
+# to build project for ios e2e testing
+$ yarn mobile:ios-build-e2e
+
+# to run ios e2e testing in emulator
+$ yarn mobile:ios-test-e2e
+
+# to build project for android e2e testing
+$ yarn mobile:android-build-e2e
+
+# to run android e2e testing in emulator
+$ yarn mobile:android-test-e2e
+
+# to generate apk, please do not use this to send to client, for internal use only
+$ yarn mobile:generate-apk
+
+# to generate icon automatically for project (refer mobile/project.json to check or modify the icon path )
+$ yarn mobile:generate-icon
+
+# to rename mobile app (name and identifier is a must, identifier will be used for both platform)
+$ yarn mobile:rename --name=YOURNAME --identifier=com.xxx.xxx
+
+# to run test for mobile project
+$ yarn mobile:test
+
+# to make sure android to connect to services such as reactotron, android device remotely
+$ yarn adb
+
 ```
 
 Miscellaneous
@@ -97,6 +136,7 @@ If you wish to install/remove dependencies into projects, you can use command be
 
 ```bash
 # to install dependencies
+# for mobile, after package installed, please modify mobile/package.json example : "mobx": "*"
 yarn add <DEPENDENCIES>
 
 # to remove dependencies
