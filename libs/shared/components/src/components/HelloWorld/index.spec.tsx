@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 
-import KIKI from './KIKI';
+import { HelloWorld } from './';
 
-describe('KIKI', () => {
+describe('HelloWorld', () => {
   it('should render successfully', () => {
-    const { container } = render(<KIKI />);
+    const { container } = render(<HelloWorld />);
     expect(container).toBeTruthy();
   });
 });
