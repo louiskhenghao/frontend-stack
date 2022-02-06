@@ -14,6 +14,7 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ExampleScreen } from '../screens';
 import { navigationRef, useBackButtonHandler } from './navigation-utilities';
+import { DrawerNavigator } from './drawer-navigator';
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -42,7 +43,7 @@ const AppStack = () => {
       }}
       initialRouteName="example"
     >
-      <Stack.Screen name="example" component={ExampleScreen} />
+      <Stack.Screen name="example" component={DrawerNavigator} />
     </Stack.Navigator>
   );
 };

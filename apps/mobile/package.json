@@ -5,6 +5,8 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "*",
     "@react-native-community/masked-view": "*",
+    "@react-navigation/bottom-tabs": "*",
+    "@react-navigation/drawer": "*",
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
     "@react-navigation/stack": "*",
@@ -21,6 +23,7 @@
     "react-native-config": "*",
     "react-native-gesture-handler": "*",
     "react-native-keychain": "*",
+    "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
     "react-native-svg": "*",
@@ -79,6 +82,8 @@
   },
   "devDependencies": {
     "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-typescript": "*",
     "@babel/plugin-proposal-decorators": "*",
     "@babel/plugin-proposal-optional-catch-binding": "*",
     "@babel/runtime": "*",
