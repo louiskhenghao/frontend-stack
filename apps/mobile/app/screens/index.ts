@@ -1,3 +1,4 @@
 export * from './Example';
-export * from './Example2';
+export * from './Home';
+export * from './Setting';
 export * from './Error/ErrorBoundary';

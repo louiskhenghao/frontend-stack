@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { ExampleScreen } from '../screens';
-import { Example2Screen } from '../screens';
 import { CustomDrawerContent } from '../containers/CustomDrawerContent';
+import { TabNavigator } from './tab-navigator';
 
 const Drawer = createDrawerNavigator();
 export const DrawerNavigator = () => {
@@ -12,7 +12,7 @@ export const DrawerNavigator = () => {
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen name="Example1" component={ExampleScreen} />
-      <Drawer.Screen name="Example2" component={Example2Screen} />
+      <Drawer.Screen name="Example2" component={TabNavigator} />
     </Drawer.Navigator>
   );
 };
