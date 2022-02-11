@@ -11,10 +11,7 @@ export const ExampleScreen = () => {
   const { t } = useTranslation('common');
 
   return (
-    <View
-      testID="ExampleScreen"
-      style={tw('flex-1 justify-center items-center')}
-    >
+    <View testID="ExampleScreen" style={tw`flex-1 justify-center items-center`}>
       <Text>
         {t('common:hello')} from {t('common:brand')}
       </Text>

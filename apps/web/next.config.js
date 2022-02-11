@@ -2,41 +2,25 @@
 const withNx = require('@nrwl/next/plugins/with-nx');
 const withPlugins = require('next-compose-plugins');
 const withNextTranslate = require('next-translate');
-const packages = require('./transpile-packages');
 const withTM = require('next-transpile-modules');
-
-/**
- * =================================
- * Next.js configuration
- * @type {import('next').NextConfig}
- * https://nextjs.org/docs/api-reference/next.config.js/introduction
- * https://github.com/vercel/next.js/blob/canary/packages/next/server/config-shared.ts#L68
-
- */
-const nextConfig = {
-  poweredByHeader: false,
-  images: {
-    domains: ['tailwindcss.com'],
-  },
-};
+const packages = require('./transpile-packages');
 
 /**
  * =================================
  * Nx NextJs Plugin
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
+ * For NextJs configuration
+ * https://nextjs.org/docs/api-reference/next.config.js/introduction
+ * https://github.com/vercel/next.js/blob/canary/packages/next/server/config-shared.ts#L68
  **/
-const plugninNx = withNx({
+const withNxPlugin = withNx({
   // Set this to true if you would like to to use SVGR
   // See: https://github.com/gregberge/svgr
   svgr: true,
-});
-
-/**
- * =================================
- * Custom Webpack configuration
- * https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
- */
-const customWebpack = {
+  poweredByHeader: false,
+  images: {
+    domains: ['tailwindcss.com'],
+  },
   webpack(config) {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
@@ -53,10 +37,10 @@ const customWebpack = {
 
     return config;
   },
-};
+});
 
 // ==========================
-module.exports = withPlugins(
-  [withTM(packages), [plugninNx, customWebpack], withNextTranslate],
-  nextConfig
-);
+module.exports = withPlugins([
+  [withTM(packages), withNxPlugin],
+  withNextTranslate,
+]);

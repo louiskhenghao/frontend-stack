@@ -4,7 +4,7 @@ import { redirect, setAuthToken } from '@lava-x/next-js';
 import { useUserSignInMutation } from '@frontend-stack/data-access';
 import useTranslation from 'next-translate/useTranslation';
 import { DEFAULT_PATH_AFTER_SIGN_IN } from 'config/constant';
-import logo from '@frontend-stack/shared/assets/images/logo.svg';
+import { ReactComponent as Logo } from '@frontend-stack/shared/assets/images/logo.svg';
 import { StyledCenterViewWrapper } from './styles';
 
 export const SignUpScreen: React.FC = () => {
@@ -12,7 +12,7 @@ export const SignUpScreen: React.FC = () => {
 
   // ==================== VIEWS
   return (
-    <StyledCenterViewWrapper logo={logo} title={t('signup.title')}>
+    <StyledCenterViewWrapper logo={Logo} title={t('signup.title')}>
       <SignUpView
         fields={['username', 'email', 'name']}
         useActionHook={{

@@ -12,4 +12,6 @@ module.exports = [
   '@lava-x/next-js',
   'styled-components/native',
   'react-native-vector-icons',
+  'twrnc',
+  '@react-native-community/hooks',
 ];

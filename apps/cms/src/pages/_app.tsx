@@ -15,7 +15,7 @@ import authOptions from 'config/auth.config';
 import apolloOptions from 'config/apollo.config';
 import { useLayoutMenus } from 'config/layout.config';
 import brand from '@frontend-stack/shared/assets/images/logo.png';
-import { ReactComponent as Logo } from '@frontend-stack/shared/assets/images/logo.svg';
+// import { ReactComponent as Logo } from '@frontend-stack/shared/assets/images/logo.svg';
 require('../styles/styles.less');
 import 'styles/globals.scss';
 
@@ -54,7 +54,7 @@ const MyApp = (props: AppProps) => {
       fixedHeader
       enableSider
       logo={brand.src}
-      brand={<Logo width="200" height="64" />}
+      brand={brand.src}
       config={config}
       authUser={authUser}
       sideMenus={sidebar}

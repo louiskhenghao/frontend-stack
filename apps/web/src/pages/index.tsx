@@ -3,7 +3,7 @@ import { Button } from 'react-native';
 import { NextPage } from 'next';
 import setLanguage from 'next-translate/setLanguage';
 import useTranslation from 'next-translate/useTranslation';
-import { HelloWorld } from '@frontend-stack/shared/components';
+// import { HelloWorld } from '@frontend-stack/shared/components';
 import { tw } from '@frontend-stack/ui-theme';
 
 const Page: NextPage = () => {
@@ -18,7 +18,7 @@ const Page: NextPage = () => {
 
       <Button onPress={() => setLanguage('en')} title="ENGLISH" />
       <Button onPress={() => setLanguage('cn')} title="CHINESE" />
-      <HelloWorld />
+      {/* <HelloWorld /> */}
       <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
         <img
           className="w-full"
@@ -46,7 +46,7 @@ const Page: NextPage = () => {
       <div className="bg-disabled h-2 w-full"></div>
 
       <hr />
-      <div style={tw('bg-primary h-2 w-full p-lg')}></div>
+      <div style={tw`bg-primary h-6 w-full p-lg`}></div>
     </div>
   );
 };

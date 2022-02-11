@@ -7,37 +7,20 @@ const withTM = require('next-transpile-modules');
 
 /**
  * =================================
- * Next.js configuration
- * @type {import('next').NextConfig}
+ * Nx NextJs Plugin
+ * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
+ * For NextJs configuration
  * https://nextjs.org/docs/api-reference/next.config.js/introduction
  * https://github.com/vercel/next.js/blob/canary/packages/next/server/config-shared.ts#L68
-
- */
-const nextConfig = {
+ **/
+const withNxPlugin = withNx({
+  // Set this to true if you would like to to use SVGR
+  // See: https://github.com/gregberge/svgr
+  svgr: true,
   poweredByHeader: false,
   images: {
     domains: ['tailwindcss.com'],
   },
-};
-
-/**
- * =================================
- * Nx NextJs Plugin
- * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
- **/
-const plugninNx = withNx({
-  // Set this to true if you would like to to use SVGR
-  // See: https://github.com/gregberge/svgr
-  svgr: false,
-});
-
-/**
- * =================================
- * Next.Js plugin for AntDesign with LESS
- * https://github.com/SolidZORO/next-plugin-antd-less#usage
- **/
-const pluginAntdLess = withAntdLess({
-  lessVarsFilePath: './src/styles/variables.less',
 });
 
 /**
@@ -64,13 +47,18 @@ const customWebpack = {
   },
 };
 
+/**
+ * =================================
+ * Next.Js plugin for AntDesign with LESS
+ * https://github.com/SolidZORO/next-plugin-antd-less#usage
+ **/
+const withAntdPlugin = withAntdLess({
+  lessVarsFilePath: './src/styles/variables.less',
+});
+
 // ==========================
-module.exports = withPlugins(
-  [
-    withTM(packages),
-    plugninNx,
-    [pluginAntdLess, customWebpack],
-    withNextTranslate,
-  ],
-  nextConfig
-);
+module.exports = withPlugins([
+  [withTM(packages), withNxPlugin],
+  [withAntdPlugin, customWebpack],
+  withNextTranslate,
+]);

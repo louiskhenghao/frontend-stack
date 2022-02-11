@@ -1,8 +1,8 @@
-import { create } from 'tailwind-rn';
-import styles from '../styles.json';
+// lib/tailwind.js
+import { create } from 'twrnc';
 
-const { tailwind: tw, getColor } = create(styles);
+// create the customized version...
+export const tw = create(require(`../tailwind.config.js`)); // <- your path may differ
 
-export { tw, getColor };
-
-export default { tw, getColor };
+// ... and then this becomes the main function your app uses
+export default tw;

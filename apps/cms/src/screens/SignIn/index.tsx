@@ -3,7 +3,7 @@ import { SignInView } from '@lava-x/antd';
 import { setAuthToken, redirect } from '@lava-x/next-js';
 import { useAdminSignInMutation } from '@frontend-stack/data-access';
 import useTranslation from 'next-translate/useTranslation';
-import logo from '@frontend-stack/shared/assets/images/logo.svg';
+import Logo from '@frontend-stack/shared/assets/images/logo.png';
 import { DEFAULT_PATH_AFTER_SIGN_IN } from 'config/constant';
 import { StyledCenterViewWrapper } from './styles';
 
@@ -12,7 +12,7 @@ export const SignInScreen: React.FC = () => {
 
   // ==================== VIEWS
   return (
-    <StyledCenterViewWrapper logo={logo} title={t('signin.title')}>
+    <StyledCenterViewWrapper logo={Logo.src} title={t('signin.title')}>
       <SignInView
         useActionHook={{
           key: 'adminSignIn',
