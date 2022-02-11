@@ -57,6 +57,6 @@ const customWebpack = {
 
 // ==========================
 module.exports = withPlugins(
-  [withTM(packages), [plugninNx, customWebpack], withNextTranslate],
+  [withTM(packages), [customWebpack, plugninNx], withNextTranslate],
   nextConfig
 );

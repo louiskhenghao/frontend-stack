@@ -11,4 +11,10 @@ module.exports = createTailwindConfig({
     `${appRootPath}/apps/cms/src/pages/**/*.{js,ts,jsx,tsx}`,
     `${appRootPath}/apps/cms/src/screens/**/*.{js,ts,jsx,tsx}`,
   ],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 });

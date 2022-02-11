@@ -4,10 +4,12 @@ import { NextPage } from 'next';
 import setLanguage from 'next-translate/setLanguage';
 import useTranslation from 'next-translate/useTranslation';
 import { HelloWorld } from '@frontend-stack/shared/components';
-import { tw } from '@frontend-stack/ui-theme';
+// import { useTailwind } from 'tailwind-rn';
+// import { tw } from '@frontend-stack/ui-theme';
 
 const Page: NextPage = () => {
   const { t } = useTranslation('common');
+  // const tw = useTailwind();
 
   // ==================== VIEWS
   return (
@@ -46,7 +48,7 @@ const Page: NextPage = () => {
       <div className="bg-disabled h-2 w-full"></div>
 
       <hr />
-      <div style={tw('bg-primary h-2 w-full p-lg')}></div>
+      {/* <div style={tw('bg-primary h-2 w-full p-lg')}></div> */}
     </div>
   );
 };

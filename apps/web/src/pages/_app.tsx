@@ -10,6 +10,7 @@ import {
 import authOptions from 'config/auth.config';
 import apolloOptions from 'config/apollo.config';
 import 'styles/globals.scss';
+import { TailwindProvider } from 'tailwind-rn';
 
 const MyApp = (props: AppProps) => {
   const { Component, pageProps, router } = props;
@@ -26,7 +27,11 @@ const MyApp = (props: AppProps) => {
   };
 
   // ================= VIEWS
-  return <Component {...pageProps} />;
+  return (
+    <TailwindProvider utilities={{}}>
+      <Component {...pageProps} />
+    </TailwindProvider>
+  );
 };
 
 export default compose(

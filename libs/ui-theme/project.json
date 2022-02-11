@@ -9,6 +9,26 @@
       "options": {
         "lintFilePatterns": ["libs/ui-theme/**/*.ts"]
       }
+    },
+    "generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tailwindcss -c libs/ui-theme/tailwind-mobile.config.js -i libs/ui-theme/input.css -o libs/ui-theme/tailwind.css --no-autoprefixer && tailwind-rn"
+          }
+        ]
+      }
+    },
+    "dev:tailwind": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "concurrently \"tailwindcss -c libs/ui-theme/tailwind-mobile.config.js -i libs/ui-theme/input.css -o libs/ui-theme/tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
+          }
+        ]
+      }
     }
   },
   "tags": []
