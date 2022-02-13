@@ -21,14 +21,6 @@ const withNxPlugin = withNx({
   images: {
     domains: ['tailwindcss.com'],
   },
-});
-
-/**
- * =================================
- * Custom Webpack configuration
- * https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
- */
-const customWebpack = {
   webpack(config) {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
@@ -45,7 +37,7 @@ const customWebpack = {
 
     return config;
   },
-};
+});
 
 /**
  * =================================
@@ -59,6 +51,6 @@ const withAntdPlugin = withAntdLess({
 // ==========================
 module.exports = withPlugins([
   [withTM(packages), withNxPlugin],
-  [withAntdPlugin, customWebpack],
+  withAntdPlugin,
   withNextTranslate,
 ]);

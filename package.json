@@ -39,6 +39,7 @@
   },
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@lava-x/antd": "2.1.11",
     "@lava-x/components": "2.1.11",
     "@lava-x/helpers": "2.1.11",
