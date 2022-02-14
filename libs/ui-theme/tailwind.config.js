@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [],
   darkMode: false, // or 'media' or 'class'
@@ -27,4 +29,15 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    /* // Only add your plugins that shared between web & mobile
+      plugin(({ addUtilities }) => {
+        addUtilities({
+          example: {
+            backgroundColor: `yellow`,
+          },
+        });
+      }),
+    */
+  ],
 };

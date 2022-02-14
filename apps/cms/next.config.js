@@ -1,5 +1,4 @@
 const withNx = require('@nrwl/next/plugins/with-nx');
-const withAntdLess = require('next-plugin-antd-less');
 const withPlugins = require('next-compose-plugins');
 const withNextTranslate = require('next-translate');
 const packages = require('./transpile-packages');
@@ -39,18 +38,8 @@ const withNxPlugin = withNx({
   },
 });
 
-/**
- * =================================
- * Next.Js plugin for AntDesign with LESS
- * https://github.com/SolidZORO/next-plugin-antd-less#usage
- **/
-const withAntdPlugin = withAntdLess({
-  lessVarsFilePath: './src/styles/variables.less',
-});
-
 // ==========================
 module.exports = withPlugins([
   [withTM(packages), withNxPlugin],
-  withAntdPlugin,
   withNextTranslate,
 ]);

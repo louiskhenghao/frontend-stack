@@ -6,8 +6,8 @@ export interface HelloWorldProps {}
 
 export const HelloWorld: React.FC<HelloWorldProps> = (props) => {
   return (
-    <View style={tw('bg-primary p-4')}>
-      <Text style={tw('text-white')}>Welcome to HelloWorld!</Text>
+    <View style={tw(`bg-primary p-4`)}>
+      <Text style={tw(`text-white`)}>Welcome to HelloWorld!</Text>
     </View>
   );
 };

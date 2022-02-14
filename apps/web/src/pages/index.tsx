@@ -46,7 +46,7 @@ const Page: NextPage = () => {
       <div className="bg-disabled h-2 w-full"></div>
 
       <hr />
-      <div style={tw`bg-primary h-6 w-full p-lg`}></div>
+      <div style={tw(`bg-primary h-6 w-full p-lg`)}></div>
     </div>
   );
 };

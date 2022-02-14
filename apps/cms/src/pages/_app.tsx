@@ -16,11 +16,24 @@ import apolloOptions from 'config/apollo.config';
 import { useLayoutMenus } from 'config/layout.config';
 import brand from '@frontend-stack/shared/assets/images/logo.png';
 // import { ReactComponent as Logo } from '@frontend-stack/shared/assets/images/logo.svg';
-require('../styles/styles.less');
+// require('../styles/styles.less');
+import 'antd/dist/antd.css';
 import 'styles/globals.scss';
 
 const MyApp = (props: AppProps) => {
   const { Component, pageProps, router } = props;
+
+  // useEffect(() => {
+  //   ConfigProvider.config({
+  //     theme: {
+  //       primaryColor: '#faad14',
+  //       errorColor: '#ff4d4f',
+  //       warningColor: '#faad14',
+  //       successColor: '#52c41a',
+  //       infoColor: '#1890ff',
+  //     },
+  //   });
+  // }, []);
 
   // ================= VARIABLES
   const { pathname, asPath } = router;
