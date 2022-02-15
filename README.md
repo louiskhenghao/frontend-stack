@@ -12,9 +12,10 @@
 - [Learn](#learn)
 - [About Us](#about-us)
 
-<!-- - [Error Boundaries](#error-boundaries) -->
 <!-- - [Reusable Components](#reusable-components) -->
 <!-- - [Create Reusable Components](#create-reusable-components) -->
+<!-- - [Error Boundaries](#error-boundaries) -->
+<!-- - [Testing](#testing) -->
 <!-- - [Linting](#linting) -->
 <!-- - [Deploy](#deploy) -->
 
@@ -46,14 +47,16 @@ yarn install
 
 Available commands:
 
+CMS/Web Project
+
 ```bash
-
-# to start `cms` development server
+# to start `cms`/`web` development server
 $ yarn cms:dev
-
-# to start `web` development server
 $ yarn web:dev
 
+# to run `cms`/`web` end to end test
+$ yarn cms:e2e
+$ yarn web:e2e
 ```
 
 Mobile
@@ -89,6 +92,7 @@ $ yarn mobile:rename --name=YOURNAME --identifier=com.xxx.xxx
 
 # to run test for mobile project
 $ yarn mobile:test
+
 ```
 
 Miscellaneous
@@ -104,9 +108,6 @@ $ yarn generate:component [componentName]
 # to view theme configuration (tailwind)
 $ yarn theme:viewer
 
-# to run eslint rules check
-$ yarn lint
-
 # to fix translation locale files
 $ yarn locale:fix
 
@@ -118,6 +119,12 @@ $ yarn cz
 
 # to connect to services such as reactotron, android device remotely
 $ yarn adb
+
+
+# ======== Linting - to run eslint rules check
+$ yarn lint:cms
+$ yarn lint:web
+$ yarn lint:mobile
 
 
 # ======== Production Build
@@ -148,7 +155,7 @@ yarn remove <DEPENDENCIES>
 ## Folder Structure
 
 ```
-├── projects
+├── apps
 │    ├── cms # cms panel
 │    ├── mobile # end user mobile application
 │    └── web # end user web application
@@ -168,14 +175,14 @@ If you have common assets that want to shared across projects & packages, please
 
 ```TypeScript
 // In web & cms project
-import logo from "@frontend-stack/assets/images/logo-brand.png";
+import logo from "frontend-stack/shared/assets/images/logo-brand.png";
 
 <img src={logo.src} />
 
 // In react native project
 import { Image } from "react-native";
 
-const logo = require("@frontend-stack/assets/images/logo-brand.png");
+const logo = require("frontend-stack/shared/assets/images/logo-brand.png");
 <Image source={logo} />
 
 ```
@@ -378,7 +385,7 @@ query getAuthProfile {
 }
 ```
 
-Third Step is to generate the GraphQL Types, Documents, Hooks by running the command `yarn generate:gql`
+Third Step is to generate the GraphQL Types, Documents, Hooks by running the command `yarn generate:graphql`
 ![GraphQL Codegen](./docs/generate-graphql.gif)
 
 Fourth Step is to import any of Types, Documents, Hooks to your components or the places you wants to use it

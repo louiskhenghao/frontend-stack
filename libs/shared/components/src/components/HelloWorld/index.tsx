@@ -2,7 +2,9 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { tw } from '@frontend-stack/ui-theme';
 
-export interface HelloWorldProps {}
+export interface HelloWorldProps {
+  title?: string;
+}
 
 export const HelloWorld: React.FC<HelloWorldProps> = (props) => {
   return (

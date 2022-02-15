@@ -1,6 +1,5 @@
 // lib/tailwind.js
-import { create, TailwindFn } from 'twrnc';
-import { ClassInput } from 'twrnc/dist/esm/types';
+import { create } from 'twrnc';
 
 // create the customized version...
 const tailwind = create(require(`../tailwind.config.js`));

@@ -7,11 +7,13 @@
       "executor": "@nrwl/cypress:cypress",
       "options": {
         "cypressConfig": "apps/cms-e2e/cypress.json",
-        "devServerTarget": "cms:serve"
+        "devServerTarget": "cms:serve",
+        "port": 5200
       },
       "configurations": {
         "production": {
-          "devServerTarget": "cms:serve:production"
+          "devServerTarget": "cms:serve:production",
+          "port": 5200
         }
       }
     },

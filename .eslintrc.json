@@ -25,7 +25,8 @@
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {
-        "@typescript-eslint/no-explicit-any": 0
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-empty-interface": "warn"
       }
     },
     {
@@ -35,7 +36,12 @@
     },
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-      "plugins": ["plugin:@nrwl/nx/react-typescript", "@m6web/i18n"],
+      "plugins": ["@m6web/i18n"],
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
       "settings": {
         "i18n": {
           "principalLangs": [
@@ -64,27 +70,22 @@
           "translationsCacheTTL": 300
         }
       },
-      "parserOptions": {
-        "ecmaFeatures": {
-          "jsx": true
-        }
-      },
       "rules": {
-        "@m6web/i18n/no-unknown-key": 0,
-        "@m6web/i18n/no-unknown-key-secondary-langs": 0,
+        "@m6web/i18n/no-unknown-key": "off",
+        "@m6web/i18n/no-unknown-key-secondary-langs": "off",
         "@m6web/i18n/no-text-as-children": [
-          "error",
+          "warn",
           {
             "ignorePattern": "^\\s?[/.]\\s?$"
           }
         ],
         "@m6web/i18n/no-text-as-attribute": [
-          "error",
+          "warn",
           {
             "attributes": ["alt", "title"]
           }
         ],
-        "@m6web/i18n/interpolation-data": 0
+        "@m6web/i18n/interpolation-data": "off"
       }
     },
     {
@@ -93,20 +94,20 @@
       "plugins": ["@m6web/i18n"],
       "rules": {
         "i18n-json/valid-message-syntax": [
-          2,
+          "warn",
           {
             "syntax": "non-empty-string"
           }
         ],
-        "i18n-json/valid-json": 2,
+        "i18n-json/valid-json": "error",
         "i18n-json/sorted-keys": [
-          2,
+          "warn",
           {
             "order": "asc",
             "indentSpaces": 2
           }
         ],
-        "i18n-json/identical-keys": 0
+        "i18n-json/identical-keys": "off"
       }
     }
   ]
