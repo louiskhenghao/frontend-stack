@@ -18,7 +18,7 @@
 
 # Used of Technologies
 
-1.  NX - `NX`
+1.  Build System - `NX`
 2.  Coding styles - `TypeScript`
 3.  UI styles - `styled-components`
 4.  UI Framework - `AntDesign` (cms), `Tailwind` (cms, web, mobile)
@@ -64,19 +64,17 @@ $ yarn mobile:ios
 # to run project in android emulator
 $ yarn mobile:android
 
-# to build project for ios e2e testing
-$ yarn mobile:ios-build-e2e
+# to build project for e2e testing
+$ yarn mobile:e2e:build
+$ yarn mobile:e2e:build:ios
+$ yarn mobile:e2e:build:android
 
-# to run ios e2e testing in emulator
-$ yarn mobile:ios-test-e2e
+# to run project e2e testing
+$ yarn mobile:e2e:run
+$ yarn mobile:e2e:run:ios
+$ yarn mobile:e2e:run:android
 
-# to build project for android e2e testing
-$ yarn mobile:android-build-e2e
-
-# to run android e2e testing in emulator
-$ yarn mobile:android-test-e2e
-
-# to generate apk, please do not use this to send to client, for internal use only
+# to generate apk (do not use this to send to client, for internal use only)
 $ yarn mobile:generate-apk
 
 # to generate icon automatically for project (refer mobile/project.json to check or modify the icon path )
@@ -97,11 +95,14 @@ Miscellaneous
 
 ```bash
 
-# to generate graphl Types, Docs, Hooks, etc
+# to generate GraphQL Types, Docs, Hooks, etc
 $ yarn generate:graphql
 
 # generate shared ui components (React Native)
 $ yarn generate:component [componentName]
+
+# to view theme configuration (tailwind)
+$ yarn theme:viewer
 
 # to run eslint rules check
 $ yarn lint
@@ -156,7 +157,7 @@ yarn remove <DEPENDENCIES>
     ├── data-access # GraphQL Types, Documents, Hooks, etc
     ├── shared # Translation locale files
     │     ├── assets # Shared assets (images, locales)
-    │     └── components # React Native UI Components
+    │     └── components # Shared React Native UI Components
     └── ui-theme # theme configuration accross mobile & web (cms coming soon)
 ```
 
@@ -164,13 +165,13 @@ yarn remove <DEPENDENCIES>
 
 ## Assets
 
-If you have common assets that want to shared across projects & packages, you add added thos file under folder `libs/shared/assets`. Then you can import your preferred assets with below example
+If you have common assets that want to shared across projects & packages, please add assets under folder `libs/shared/assets`. Then you can import your preferred assets with below example
 
 ```TypeScript
-// In react project
+// In web & cms project
 import logo from "@frontend-stack/assets/images/logo-brand.png";
 
-<img src={logo} />
+<img src={logo.src} />
 
 // In react native project
 import { Image } from "react-native";
@@ -184,7 +185,10 @@ const logo = require("@frontend-stack/assets/images/logo-brand.png");
 
 ## Translation
 
-Translation locales can be shared among `cms`, `web` & `mobile` projects under `libs/shared/assets/src/locales`. You can have multiple locale files (JSON) within a language folder. This monorepo has come with two languanges by default, you may refer to the folder structure below & feel free to make changes
+This monorepo has come with two language translation by default and translation files are located under folder `libs/shared/assets/src/locales`.
+you may refer to the folder structure below & feel free to make changes
+
+You can have multiple locale files (JSON) within a language folder.These files shared among `cms`, `web` & `mobile` projects.
 
 ```
 ├── cn
@@ -205,7 +209,7 @@ We've provided a basic example below & this is how each JSON file should looks l
 }
 ```
 
-Note: Please follow the ascending order for the key (A-Z, from top to bottom). You may use `yarn locale:fix` command for the fixes automatically
+**Note**: Please follow the ascending order for the key (A-Z, from top to bottom). You may use `yarn locale:fix` command for the fixes automatically
 
 ### Example
 
@@ -236,11 +240,10 @@ export default function SomeComponent() {
 }
 ```
 
-For `mobile` projects, you can do refer to the example below
+For `mobile` projects, you can refer to the example below
 
 ```TypeScript
-import { Text } from "react-native";
-import { Button } from "@frontend-stack/shared/components";
+import { Text, Button } from "react-native";
 import { useTranslation } from "i18n"; // <--- always import from "i18n"
 
 export default function SomeComponent() {
@@ -253,12 +256,8 @@ export default function SomeComponent() {
       <Text>{t("some-variable", { message: "Hey" })}</Text>
 
       {/* Switch Language */}
-      <Button onPress={() => setLanguage("en")}>
-        {t("language-en")}
-      </Button>
-      <Button onPress={() => setLanguage("cn")}>
-        {t("language-cn")}
-      </Button>
+      <Button onPress={() => setLanguage("en")} title={t("language-en")} />
+      <Button onPress={() => setLanguage("cn")} title={t("language-cn")} />
     </>
   );
 }
@@ -266,24 +265,37 @@ export default function SomeComponent() {
 
 If you've noticed, the interface for the translation actually is quite similar for both `react` & `react-native` projects. But there are certains thing you guys have to take note
 
-1. In `react-native` project (mobile) always import from `"i18n"`
-2. In `react` projects (web, cms) please can refer to [next-translate](https://github.com/vinissimus/next-translate) documentation or above example
-3. You can always use `setLanguage` method to switch language within projects, but there is some differences on implementation. Please checkout the example below:
+1. For `react-native` project (mobile) always import from `"i18n"`
+2. For `react` projects (web, cms) please refer to [next-translate](https://github.com/vinissimus/next-translate) documentation or example above
+3. You can always use `setLanguage` method to switch language, but there is some differences on implementation. Please checkout the example below:
 
 ```TypeScript
 // in react project (web & cms)
 import setLanguage from "next-translate/setLanguage";
 
-setLanguage("en"); // within component
+const YourComponent = () => {
+  const onPressButton = () => {
+    setLanguage("en");
+  }
+
+  return <button onClick={onPressButton}>ENGLISH</button>
+}
 
 // in react-native project (mobile)
 import { useTranslation } from "i18n";
 
-const { t, lang, setLanguage } = useTranslation(); // within component
-setLanguage("en")
+const YourComponent = () => {
+  const { t, lang, setLanguage } = useTranslation(); // use this hooks within component
+
+  const onPressButton = () => {
+    setLanguage("en");
+  }
+
+  return <Button onPress={onPressButton} title="ENGLISH" />
+}
 ```
 
-You can check the table for
+Checkout table below comparison
 
 | Variable/Function        | Description                       | Web & CMS                                                                             | Mobile                                                       |
 | ------------------------ | --------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -295,57 +307,39 @@ You can check the table for
 
 ## Theme
 
-This monorepo enable theme configuration accross packages & projects. There were predefined setting under `packages/ui-theme` folder and below the folder structure
+This monorepo enabled theme configuration accross packages & projects. There were predefined setting under `libs/ui-theme` folder and below is the folder structure
 
 ```
 ├── src
-│   ├── config # constant values
-│   │   ├── colors
-│   │   ├── palette
-│   │   └── spacing
-│   └── tailwind # helper function for get tailwind styles with css name
-├── styles.json # tailwind styles for react native
+│   └── index.ts # helper function for get tailwind styles with css name
 └── tailwind.config.js # tailwind configuration
 ```
 
-For minimal usage, just modify constant values for ` colors`, `palatte`, `spacing` under `config` folder and you can access the value by importing the package. For example
-
-```TypeScript
-import { colors, palette, spacing } from "@frontend-stack/ui-theme";
-
-colors.primary // primary color
-palette.black // black color
-
-spacing.scale.sm // xs, sm, md, lg, xl, xxl
-spacing.unit // px, rem, em
-
-```
-
-For advanced usage, please refer to upcoming section for Tailwind & Ant Design
-
 ### Tailwind
 
-For tailwind theme configuration, you may update the `tailwind.config.js` under `packages/ui-theme` folder. The configuration will be shared accross `mobile` and `web` or other project that enable tailwind.
-
+For tailwind theme configuration, you may update `tailwind.config.js` under `libs/ui-theme` folder. This configuration will be shared with other project that has enabled tailwind.
 If you wish to have advanced configuration, please checkout the [official documentation](https://tailwindcss.com/docs/configuration) for customization.
 
-**Note**: You can always run `yarn theme:viewer` to view theme configuration.
+**Note**:
+
+1. Only put general configuration under `libs/ui-theme/tailwind.config.js` as this configuration shared to ReactNative project as well.
+2. If you have configuration specifically for web/cms project, please proceed to project folder. eg: `apps/web/tailwind.config.js`
+3. You can always run `yarn theme:viewer` to view theme configuration.
 
 #### Example
 
 To apply tailwind style for `react` or `react-native` project, you can do something like below:
 
 ```TypeScript
-// in react-native project use with `@frontend-stack/ui-theme` for styling
-import { View } from "react-native";
-import { Text } from "@frontend-stack/shared/components";
+// in react-native project use `@frontend-stack/ui-theme` for styling
+import { View, Text } from "react-native";
 import { tw } from "@frontend-stack/ui-theme";
 
 <View style={tw("bg-primary")}>
   <Text>View with primary color background</Text>
 </View>
 
-// if you are working on react project, just do as simple like below
+// if you are working on web related project, just do as simple like below
 <div className="bg-primary">
   View with primary color background
 </div>
@@ -353,12 +347,7 @@ import { tw } from "@frontend-stack/ui-theme";
 
 ##### Caveat:
 
-1. There are limited css classname supported for `React Native`, you can checkout this [repo](https://github.com/vadimdemedes/tailwind-rn#supported-utilities) for more information
-2. Whenever there is updates on `tailwind.config.js`, please remember to run `yarn theme:generate` in order apply changes on `React Native`
-
-### Ant Design
-
-For Ant.Design theme configuration, you may update the `custom.less` under `projects/cms/styles` folder. Please refer to this [reference](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) if you need to overwrite the default styles.
+1. Certain css might not supported for `React Native`, please checkout the [repo](https://github.com/jaredh159/tailwind-react-native-classnames) for more information
 
 ---
 
@@ -391,35 +380,35 @@ query getAuthProfile {
 ```
 
 Third Step is to generate the GraphQL Types, Documents, Hooks by running the command `yarn generate:gql`
-![GraphQL Codegen](./docs/gql-generate.gif)
+![GraphQL Codegen](./docs/generate-graphql.gif)
 
 Fourth Step is to import any of Types, Documents, Hooks to your components or the places you wants to use it
 
-```js
-// example from /apps/xxx/src/config/auth.query.ts
-import get from 'lodash/get';
-import { GetAuthProfileDocument } from '@frontend-stack/data-access';
-import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
+```TypeScript
+import { useAdminSignInMutation } from '@frontend-stack/data-access';
 
-export default (
-  apolloClient: ApolloClient<NormalizedCacheObject>
-): Promise<{ authUser: any }> => {
-  return apolloClient
-    .query({
-      query: GetAuthProfileDocument,
+const ExampleComponent = () => {
+  const [signin] = useAdminSignInMutation();
+
+  const onSubmit = ({ email, password }) => {
+    signin({
+      input: {
+        email,
+        password
+      }
     })
-    .then(({ data }) => {
-      const authUser = get(data, 'getAuthProfile', null);
-      return { authUser };
-    })
-    .catch(() => {
-      // Fail gracefully
-      return { authUser: null };
-    });
-};
+  }
+
+  return (
+    <form onSubmit={onSubmit}>
+      {/* Your view goes here */}
+    </form>
+  );
+
+}
 ```
 
----
+<!-- ---
 
 # Deploy
 
@@ -446,7 +435,7 @@ note: change the `xxx` according to your project folder structure.
 
 1. run `vercel` then setup the project. After that copy the .vercel folder into the respective `projects/xxx` folder.
 2. change the 'scripts' in package.json to allow shortcut such as `"deploy:xxx": "cp -rf ./projects/xxx/.vercel ./ && vercel"`.
-3. note: make sure you commit the code into the git repo. so the next person can just quickly run the command to deploy.
+3. note: make sure you commit the code into the git repo. so the next person can just quickly run the command to deploy. -->
 
 ---
 
@@ -486,4 +475,4 @@ Oh Wait! There are some awesome references for UI components as well
 
 # About US
 
-Check out our company profile [LavaX Technologies Sdn Bhd](https://lavax.co), and welcome to reach out for inquires.
+Check out our company profile [LavaX Technologies Sdn Bhd](https://lavax.co) and welcome to reach out for inquires.

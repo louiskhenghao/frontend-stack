@@ -11,10 +11,15 @@ module.exports = (tailwindConfig = {}) => {
   const projectSafelist = projectContent.safelist || [];
   const safelist = [...rootSafelist, ...projectSafelist];
 
+  const rootPlugins = rootTailwindConfig.plugins || [];
+  const projectPlugins = tailwindConfig.plugins || [];
+  const plugins = [...rootPlugins, ...projectPlugins];
+
   return {
     ...rootTailwindConfig,
     ...tailwindConfig,
     content,
     safelist,
+    plugins,
   };
 };
