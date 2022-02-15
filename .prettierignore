@@ -1,4 +1,12 @@
 # Add files here to ignore them from prettier formatting
 
+*.min.*
+*lock.*
+.history
+.next
+.vscode
 /dist
 /coverage
+node_modules
+apps/**/android
+apps/**/ios

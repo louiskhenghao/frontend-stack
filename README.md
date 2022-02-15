@@ -8,11 +8,15 @@
 - [Assets](#assets)
 - [Translation](#translation)
 - [Theme](#theme)
-- [Reusable Components](#reusable-components)
 - [GraphQL CodeGen](#graphQL-codeGen)
-- [Deploy](#deploy)
 - [Learn](#learn)
 - [About Us](#about-us)
+
+<!-- - [Error Boundaries](#error-boundaries) -->
+<!-- - [Reusable Components](#reusable-components) -->
+<!-- - [Create Reusable Components](#create-reusable-components) -->
+<!-- - [Linting](#linting) -->
+<!-- - [Deploy](#deploy) -->
 
 ---
 
@@ -85,10 +89,6 @@ $ yarn mobile:rename --name=YOURNAME --identifier=com.xxx.xxx
 
 # to run test for mobile project
 $ yarn mobile:test
-
-# to make sure android to connect to services such as reactotron, android device remotely
-$ yarn adb
-
 ```
 
 Miscellaneous
@@ -116,19 +116,18 @@ $ yarn format
 # to commit
 $ yarn cz
 
+# to connect to services such as reactotron, android device remotely
+$ yarn adb
+
 
 # ======== Production Build
 
-# execute production build for `cms` project
+# execute production build for `cms` / `web` project
 $ yarn build:cms
-
-# execute production build for `web` project
 $ yarn build:web
 
-# start production server for `cms` project
+# start production server for `cms` / `web` project
 $ yarn run:cms
-
-# start production server for `web` project
 $ yarn run:web
 
 ```
@@ -158,7 +157,7 @@ yarn remove <DEPENDENCIES>
     ├── shared # Translation locale files
     │     ├── assets # Shared assets (images, locales)
     │     └── components # Shared React Native UI Components
-    └── ui-theme # theme configuration accross mobile & web (cms coming soon)
+    └── ui-theme # theme configuration accross projects
 ```
 
 ---

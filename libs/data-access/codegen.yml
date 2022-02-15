@@ -1,5 +1,5 @@
 overwrite: true
-schema: "http://localhost:3000/graphql"
+schema: 'http://localhost:3000/graphql'
 documents:
   - libs/data-access/src/operations/**/*.graphql
 generates:
@@ -10,7 +10,7 @@ generates:
     preset: near-operation-file
     presetConfig:
       extension: .tsx
-      baseTypesPath: "@types/index.ts"
+      baseTypesPath: '@types/index.ts'
     plugins:
       - typescript-operations
       - typescript-react-apollo

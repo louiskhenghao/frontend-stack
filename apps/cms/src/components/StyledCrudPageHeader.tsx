@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { CrudPageHeader } from "@lava-x/antd";
+import styled from 'styled-components';
+import { CrudPageHeader } from '@lava-x/antd';
 
 export const StyledCrudPageHeader = styled(CrudPageHeader)`
   padding: 0 25px;
   margin-bottom: 25px;
 
   ${(props) => {
-    return `padding-bottom: ${props?.footer ? "initial;" : "15px !important;"}`;
+    return `padding-bottom: ${props?.footer ? 'initial;' : '15px !important;'}`;
   }}
 
   .ant-page-header-heading-title {
