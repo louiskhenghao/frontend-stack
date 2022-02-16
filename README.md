@@ -17,7 +17,6 @@
 
 <!-- - [Reusable Components](#reusable-components) -->
 <!-- - [Testing](#testing) -->
-
 <!-- - [Deploy](#deploy) -->
 
 ---
@@ -122,6 +121,9 @@ $ yarn locale:fix
 
 # to run prettier
 $ yarn format
+
+# to view dependency graph
+$ yarn dep
 
 # to commit
 $ yarn cz
