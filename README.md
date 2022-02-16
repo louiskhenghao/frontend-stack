@@ -1,6 +1,6 @@
-# NextJs + React Native Web + React Native with NX
+# Frontend Stack
 
-## Table of contents
+# Table of contents
 
 - [Used of Technologies](#used-of-technologies)
 - [Getting Started](#getting-started)
@@ -8,15 +8,16 @@
 - [Assets](#assets)
 - [Translation](#translation)
 - [Theme](#theme)
+- [Error Boundaries](#error-boundaries)
 - [GraphQL CodeGen](#graphQL-codeGen)
+- [Create Reusable Components](#create-reusable-components)
+- [Linting](#linting)
 - [Learn](#learn)
 - [About Us](#about-us)
 
 <!-- - [Reusable Components](#reusable-components) -->
-<!-- - [Create Reusable Components](#create-reusable-components) -->
-<!-- - [Error Boundaries](#error-boundaries) -->
 <!-- - [Testing](#testing) -->
-<!-- - [Linting](#linting) -->
+
 <!-- - [Deploy](#deploy) -->
 
 ---
@@ -45,9 +46,9 @@ yarn
 yarn install
 ```
 
-Available commands:
+## Available commands:
 
-CMS/Web Project
+### CMS/Web Project
 
 ```bash
 # to start `cms`/`web` development server
@@ -57,9 +58,17 @@ $ yarn web:dev
 # to run `cms`/`web` end to end test
 $ yarn cms:e2e
 $ yarn web:e2e
+
+# execute production build for `cms`/`web` project
+$ yarn build:cms
+$ yarn build:web
+
+# start production server for `cms`/`web` project
+$ yarn run:cms
+$ yarn run:web
 ```
 
-Mobile
+### Mobile
 
 ```bash
 # to start metro bundler
@@ -95,7 +104,7 @@ $ yarn mobile:test
 
 ```
 
-Miscellaneous
+### Miscellaneous
 
 ```bash
 
@@ -120,23 +129,11 @@ $ yarn cz
 # to connect to services such as reactotron, android device remotely
 $ yarn adb
 
-
 # ======== Linting - to run eslint rules check
+$ yarn lint # run for all projects & packages
 $ yarn lint:cms
 $ yarn lint:web
 $ yarn lint:mobile
-
-
-# ======== Production Build
-
-# execute production build for `cms` / `web` project
-$ yarn build:cms
-$ yarn build:web
-
-# start production server for `cms` / `web` project
-$ yarn run:cms
-$ yarn run:web
-
 ```
 
 If you wish to install/remove dependencies into projects, you can use command below
@@ -152,7 +149,7 @@ yarn remove <DEPENDENCIES>
 
 ---
 
-## Folder Structure
+# Folder Structure
 
 ```
 ├── apps
@@ -169,7 +166,7 @@ yarn remove <DEPENDENCIES>
 
 ---
 
-## Assets
+# Assets
 
 If you have common assets that want to shared across projects & packages, please add assets under folder `libs/shared/assets`. Then you can import your preferred assets with below example
 
@@ -189,7 +186,7 @@ const logo = require("frontend-stack/shared/assets/images/logo-brand.png");
 
 ---
 
-## Translation
+# Translation
 
 This monorepo has come with two language translation by default and translation files are located under folder `libs/shared/assets/src/locales`.
 you may refer to the folder structure below & feel free to make changes
@@ -311,7 +308,7 @@ Checkout table below comparison
 
 ---
 
-## Theme
+# Theme
 
 This monorepo enabled theme configuration accross packages & projects. There were predefined setting under `libs/ui-theme` folder and below is the folder structure
 
@@ -321,7 +318,7 @@ This monorepo enabled theme configuration accross packages & projects. There wer
 └── tailwind.config.js # tailwind configuration
 ```
 
-### Tailwind
+## Tailwind
 
 For tailwind theme configuration, you may update `tailwind.config.js` under `libs/ui-theme` folder. This configuration will be shared with other project that has enabled tailwind.
 If you wish to have advanced configuration, please checkout the [official documentation](https://tailwindcss.com/docs/configuration) for customization.
@@ -332,7 +329,7 @@ If you wish to have advanced configuration, please checkout the [official docume
 2. If you have configuration specifically for web/cms project, please proceed to project folder. eg: `apps/web/tailwind.config.js`
 3. You can always run `yarn theme:viewer` to view theme configuration.
 
-#### Example
+### Example
 
 To apply tailwind style for `react` or `react-native` project, you can do something like below:
 
@@ -351,13 +348,64 @@ import { tw } from "@frontend-stack/ui-theme";
 </div>
 ```
 
-##### Caveat:
+### Caveat:
 
 1. Certain css might not supported for `React Native`, please checkout the [repo](https://github.com/jaredh159/tailwind-react-native-classnames) for more information
 
 ---
 
-## GraphQL CodeGen
+# Error Boundaries
+
+Error boundaries is the React way to handle errors in your application. It lets you react and recover from runtime errors as well as providing a fallback user interface if applicable.
+If you would like to further understand here is the reference [link](https://blog.openreplay.com/catching-errors-in-react-with-error-boundaries) for more information.
+
+In this monorepo we're using [react-error-boundary](https://github.com/bvaughn/react-error-boundary) for handle error in react application.
+
+### Example
+
+Below is the basic usage simulate the error
+
+```TypeScript
+import React, { useEffect } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
+// this component will throw error during mounted
+const ComponentThatMayError = () => {
+  useEffect(() => {
+    throw new Error('Test error');
+  }, []);
+  return null;
+};
+
+// this component is the fallback view
+const ErrorFallbackView = ({ error, resetErrorBoundary }) => {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>{error.message}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  );
+}
+
+// this is the actual implementation with above components
+const SomeScreenOrComponent = () => {
+  return (
+    <div>
+      <p>This is demo</p>
+      <ErrorBoundary
+        FallbackComponent={ErrorFallbackView}
+      >
+        <ComponentThatMayError />
+      </ErrorBoundary>
+    </div>
+  );
+}
+```
+
+---
+
+# GraphQL CodeGen
 
 First step is change the schema url to your development server at `./libs/data-access/.codegen.yml`
 
@@ -413,6 +461,91 @@ const ExampleComponent = () => {
 
 }
 ```
+
+---
+
+# Create Reusable Components
+
+Reusable components are those React components that can be used multiple times in application/projects.
+With this setup, all the reusable components should placed under `libs/shared/components/src/components` folder in order to get all the projects within this setup are able to access to it.
+
+To create a reusable component you can run the command below
+
+```bash
+$ yarn generate:component [componentName]
+```
+
+![Generate component with command](./docs/generate-component.gif)
+
+The generated component should appeared in `libs/shared/components/src/components` folder upon success. You can proceed to the component and make modification anytime after the generation process is done.
+
+### Note:
+
+1. The command will generated a `React Native` component
+2. Be aware that the generated component folder & file naming convention is not tally with our coding practices standards. Do proceed to rename the folder & file manually
+3. Remember to update component export in `libs/shared/components/src/index.ts` once above step is done
+
+| Generated Component                                    | Rename Generated Component                                  |
+| ------------------------------------------------------ | ----------------------------------------------------------- |
+| ![Generated Component](./docs/generated-component.png) | ![Rename Component](./docs/generated-component-renamed.png) |
+
+### Caveat:
+
+1. Try not to include platform specific code/package for component, as component should works well in other web & mobile environment. Example:
+   1. Request reading contact list permission
+   2. Import package that is not support for web/mobile environment
+2. If there is occasional/special case that require to have platform specific support. You always able to create another component with different extension under the same generated component folder.
+   1. `.web.tsx`
+   2. `.ios.tsx`
+   3. `.android.tsx`
+   4. `.mobile.tsx`
+
+### Example Usage
+
+```TypeScript
+import { MyComponent } from '@frontend-stack/shared/components';
+
+const ExampleUsage = () => {
+  return (
+    <div>
+      <MyComponent />
+    </div>
+  )
+}
+
+```
+
+---
+
+# Linting
+
+Linting is important to reduce errors and improve the overall quality of code & it helps to accelerate development and reduce costs by finding errors earlier.
+
+Here’s how lint tools are typically fit into the development process.
+
+1. Write the code.
+2. Compile it.
+3. Analyze it with the linter.
+4. Review the bugs identified by the tool.
+5. Make changes to the code to resolve the bugs.
+6. Link modules once the code is clean.
+7. Analyze them with the linter.
+8. Do manual code reviews.
+
+Lint programming is a type of automated check. It should happen early in development, before code reviews and testing. That’s because automated code checks make the code review and test processes more efficient.
+
+The current setup was leverage on [ESLint](https://eslint.org/) to automated the process during development process. You also do lint check manually by running the commands below
+
+```bash
+$ yarn lint # for all projects
+$ yarn [target]:lint # to target specific project
+
+# to fix the linting issue
+$ yarn lint --fix
+$ yarn [target]:lint --fix # to target specific project
+```
+
+**Note**: Be aware that `--fix` options wouldn't help to fix everything automatically, you would need to resolve some of the errors manually
 
 <!-- ---
 

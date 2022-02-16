@@ -38,7 +38,7 @@
     "lint:mobile": "nx lint mobile",
     "generate:theme": "nx run ui-theme:generate",
     "generate:gql": "nx run data-access:generate",
-    "generate:component": "yarn nx g @nrwl/react-native:component --project=shared-components --directory=components --pascalCaseFiles=true --export=true",
+    "generate:component": "yarn nx g @nrwl/react-native:component --project=shared-components --directory=components --export=true",
     "theme:viewer": "tailwind-config-viewer -c libs/ui-theme/tailwind.config.js -p 5050",
     "postinstall": "nx postinstall mobile",
     "locale:fix": "eslint --fix --format node_modules/eslint-plugin-i18n-json/formatter.js libs/shared/assets/src/locales/**/*.json --no-ignore",
